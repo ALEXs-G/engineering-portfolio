@@ -98,6 +98,8 @@ Main hardware used in the project:
 • Custom PCB board  
 • 3D printed enclosure
 
+![material](images/material.jpeg)
+
 ---
 
 # 🖥️ Software Technologies
