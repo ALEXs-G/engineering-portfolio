@@ -165,6 +165,7 @@ Future developments could include:
 
 Example prototype implementation:
 
+![Prototype](images/prototype.jpg)
 
 
-Example:
+
