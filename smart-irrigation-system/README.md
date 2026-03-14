@@ -111,9 +111,9 @@ Programming and development tools used:
 • MATLAB ThingSpeak platform  
 • SolidWorks (mechanical design)  
 • KiCad (PCB design)
-![material](images/PCB.jpeg)
----
 
+---
+![material](images/PCB.jpeg)
 # 🧠 Control Logic
 
 The irrigation logic follows a simple control algorithm:
