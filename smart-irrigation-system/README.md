@@ -167,5 +167,25 @@ Example prototype implementation:
 
 ![Prototype](images/prototype.jpg)
 
+---
 
+# 🎓 Academic Context
+
+Course: Electrical and Computer Engineering  
+University: University of Beira Interior  
+Course Unit: Engineering Project
+
+---
+
+# 👨‍💻 Author
+
+Alexandre Saraiva  
+
+Electrical and Computer Engineering Student  
+
+LinkedIn  
+https://linkedin.com/in/alexandre-saraiva12
+
+GitHub  
+https://github.com/ALEXs-G
 
