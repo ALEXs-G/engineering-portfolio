@@ -173,7 +173,7 @@ Example prototype implementation:
 
 Course: Electrical and Computer Engineering  
 University: University of Beira Interior  
-Course Unit: Engineering Project
+Course Unit: Electrical Project
 
 ---
 
