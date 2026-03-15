@@ -170,6 +170,12 @@ Example prototype implementation:
 ![Prototype](images/prototype.jpg)
 
 ---
+# 📄 Full Project Report
+
+You can read the complete academic report here:
+
+➡️ [Autonomous-smart-irrigation-system](RelatorioSISTEMAIrrigacaoFinal.pdf)
+
 
 # 🎓 Academic Context
 
