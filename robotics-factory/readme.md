@@ -114,12 +114,11 @@ This project demonstrates practical experience with:
 • Autonomous navigation
 
 ---
+## 📄 Full Project Report
 
-# 📄 Project Report
+You can read the complete academic report here:
 
-Full academic report:
-
-RelatorioRoboticaADD.pdf
+➡️ [Robotics Project Report](RelatorioRoboticaADD.pdf)
 
 ---
 
