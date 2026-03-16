@@ -40,7 +40,7 @@ It also updates status flags such as:
 
 ## Architecture Diagram and Hardware Prototype
 
-![Architecture Diagram](images/architecture-diagram.png)
+![Architecture Diagram](architecture-diagram.png)
 
 ---
 
