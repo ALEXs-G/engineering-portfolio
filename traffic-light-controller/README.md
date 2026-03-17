@@ -12,7 +12,7 @@ Embedded systems project implementing a **traffic light controller with pedestri
 
 ## 📄 Project Report
 
-📄 [Technical Report – Traffic Light Control System](./docs/MICRO2lab25.pdf)
+📄 [Technical Report – Traffic Light Control System](MICRO2lab25.pdf)
 
 ---
 
