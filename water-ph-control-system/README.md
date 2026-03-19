@@ -12,7 +12,7 @@ Embedded systems project implementing an **automated water filtration and pH reg
 
 ## 📄 Project Report
 
-📥 [Download Full Report](/REPORT.pdf)
+📥 [Download Full Report](REPORT.pdf)
 
 ---
 
