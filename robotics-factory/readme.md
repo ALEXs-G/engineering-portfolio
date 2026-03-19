@@ -33,6 +33,8 @@ The challenge simulates **real industrial automation environments**.
 
 The project used the **mBot2 robotics platform** developed by Makeblock.
 
+![Prototype](robotADD.png)
+
 Main controller:
 
 CyberPi microcontroller
