@@ -6,13 +6,13 @@ Embedded systems project implementing an **automated water filtration and pH reg
 
 ## 📸 System Concept
 
-![System Architecture](images/system.png)
+![System Architecture](ArduinoCircuit.png)
 
 ---
 
 ## 📄 Project Report
 
-📥 [Download Full Report](/Relatorio2ALEXS.pdf)
+📥 [Download Full Report](/REPORT.pdf)
 
 ---
 
