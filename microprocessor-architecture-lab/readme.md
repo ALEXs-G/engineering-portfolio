@@ -88,7 +88,7 @@ The controller was implemented, although full hardware validation of the complet
 
 ## Project Report
 
-[Download full report (PDF)](report.pdf)
+[Download full report (PDF)](MICRO1lab25.pdf)
 
 ---
 
