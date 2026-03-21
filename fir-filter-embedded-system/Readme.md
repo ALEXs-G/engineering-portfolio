@@ -6,7 +6,7 @@ Implementation of a **Finite Impulse Response (FIR) digital filter** using an **
 
 ## 📸 System Setup
 
-![Circuit](ArduinoCircuit.png)
+![Circuit](setup_circuit.png)
 
 ---
 
