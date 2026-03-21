@@ -12,7 +12,7 @@ Implementation of a **Finite Impulse Response (FIR) digital filter** using an **
 
 ## 📄 Project Report
 
-📥 [Download Full Report](Alexandre_TLB2_PSI.pdf)
+📥 [Download Full Report](Report_Alexandre_TLB2_PSI.pdf)
 
 ---
 
