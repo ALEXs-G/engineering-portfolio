@@ -6,7 +6,7 @@ Design and implementation of a **temperature measurement system using a Type K t
 
 ## 📸 Experimental Setup
 
-![Thermocouple System]()
+![Thermocouple System](termopar.png)
 
 ---
 
