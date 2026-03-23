@@ -12,7 +12,7 @@ Design and implementation of a **temperature measurement system using a Type K t
 
 ## 📄 Project Report
 
-📥 [Download Full Report](./docs/relatorioTKalexandreEEC.pdf)
+📥 [Download Full Report](REPORTKalexandreEEC.pdf)
 
 ---
 
