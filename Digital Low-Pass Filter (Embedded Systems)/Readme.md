@@ -85,13 +85,13 @@ This confirms correct filter behavior according to theory.
 - Original Signal  
 - Filtered Signal  
 
-*()*
+![Signals](SIgnal.png)
 
 ---
 
 ## 📄 Full Report
 
-📎 [Download Full Report]()
+📎 [Download Full Report](Report_Low_FILTER.pdf)
 
 ---
 
