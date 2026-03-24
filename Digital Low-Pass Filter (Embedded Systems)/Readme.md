@@ -76,7 +76,7 @@ This confirms correct filter behavior according to theory.
 
 ## 📸 Experimental Setup
 
-![Setup](setup_sig.jpg)
+![Setup](setup_sig.png)
 
 ---
 
