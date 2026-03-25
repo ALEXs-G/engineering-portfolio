@@ -31,21 +31,21 @@ The system operates using **interrupt-driven logic** and low-level hardware cont
 
 ##  System Functionality
 
-###  Filtration Control
+### 1-  Filtration Control
 - Triggered by external clock signal
 - System starts in **sleep mode**
 - Activates filtration cycle when triggered
 
-###  pH Measurement
+### 2- pH Measurement
 - Sensor reading initiated via control signal
 - ADC used to capture pH value
 - Value stored in input port
 
-###  pH Comparison Logic
+### 3- pH Comparison Logic
 - Compares sensor value with reference value
 - Applies tolerance margin (+3)
 
-###  Automatic Regulation
+### 4- Automatic Regulation
 - If pH too high → activates **pH decrease (PhA)**
 - If pH too low → activates **pH increase (PhB)**
 - Runs continuously during filtration cycle
