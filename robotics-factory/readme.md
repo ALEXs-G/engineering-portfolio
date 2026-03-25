@@ -1,4 +1,4 @@
-# 🤖 Robotics Project — mBot2 Robot@Factory Lite
+#  Robotics Project — mBot2 Robot@Factory Lite
 
 Autonomous mobile robot developed using the **mBot2 platform** for the **Robot@Factory Lite robotics competition**.
 
@@ -6,7 +6,7 @@ This project was developed during the **Robotics course** of the Electrical and 
 
 ---
 
-# 🎥 Project Demonstration
+#  Project Demonstration
 
 Video demonstration of the robot:
 
@@ -14,7 +14,7 @@ https://www.youtube.com/watch?v=6UiQEKMYRqw
 
 ---
 
-# 🧠 Project Goal
+#  Project Goal
 
 The objective was to design and program an autonomous robot capable of navigating an industrial-style factory map and transporting objects.
 
@@ -29,7 +29,7 @@ The challenge simulates **real industrial automation environments**.
 
 ---
 
-# 🤖 Robot Platform
+#  Robot Platform
 
 The project used the **mBot2 robotics platform** developed by Makeblock.
 
@@ -48,7 +48,7 @@ Capabilities include:
 
 ---
 
-# 🔧 Hardware Components
+#  Hardware Components
 
 Main hardware used in the project:
 
@@ -64,7 +64,7 @@ The electromagnet was designed to tow and transport the factory box.
 
 ---
 
-# 🖥️ Software & Programming
+#  Software & Programming
 
 The robot was programmed using:
 
@@ -76,7 +76,7 @@ An attempt was made to implement the **A* pathfinding algorithm**, but due to ti
 
 ---
 
-# ⚙️ Control Strategy
+#  Control Strategy
 
 The factory map was divided into grid cells to represent the environment.
 
@@ -89,7 +89,7 @@ This approach allowed the robot to determine its position and plan movement thro
 
 ---
 
-# 📊 Results
+#  Results
 
 The robot successfully completed the first mission sequence:
 
@@ -103,7 +103,7 @@ However, limitations in sensor accuracy prevented full completion of the competi
 
 ---
 
-# 🧪 Skills Demonstrated
+#  Skills Demonstrated
 
 This project demonstrates practical experience with:
 
@@ -116,15 +116,15 @@ This project demonstrates practical experience with:
 • Autonomous navigation
 
 ---
-## 📄 Full Project Report
+## Full Project Report
 
 You can read the complete academic report here:
 
-➡️ [Robotics Project Report](RelatorioRoboticaADD.pdf)
+ [Robotics Project Report](RelatorioRoboticaADD.pdf)
 
 ---
 
-# 🎓 Academic Context
+#  Academic Context
 
 Course: Robotics  
 University: University of Beira Interior  
@@ -132,7 +132,7 @@ Degree: Electrical and Computer Engineering
 
 ---
 
-# 👨‍💻 Author
+#  Author
 
 Alexandre Saraiva  
 
