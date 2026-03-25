@@ -1,0 +1,33 @@
+Name PEOESsemaforo ;
+PartNo 00 ;
+Date 09/06/2025 ;
+Revision 01 ;
+Designer Engineer ;
+Company ubi ;
+Assembly None ;
+Location ;
+Device g22v10 ;
+
+/* *************** INPUT PINS *********************/
+PIN 2 = Q0 ; /* */
+PIN 3 = Q1 ; /* */
+PIN 4 = Q2 ; /* */
+
+/* *************** OUTPUT PINS *********************/
+PIN 14 = PA_G ; /* */
+PIN 15 = PA_R ; /* */
+PIN 16 = PB_G ; /* */
+PIN 17 = PB_R ; /* */
+PIN 18 = PC_G ; /* */
+PIN 20 = PC_R ; /* */
+
+
+/* Lógica de activação para LEDs verdes dos peões */
+PA_G = !Q2 & !Q1 & !Q0;
+PB_G = !Q2 & !Q1 & !Q0;
+PC_G = !Q2 & !Q1 & !Q0;
+
+/* Lógica para LEDs vermelhos (complementar dos verdes) */
+PA_R = !(PA_G);
+PB_R = !(PB_G);
+PC_R = !(PC_G);
