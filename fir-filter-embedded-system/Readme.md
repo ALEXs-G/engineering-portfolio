@@ -1,22 +1,22 @@
-# 📡 FIR Filter Implementation on ATmega2560
+#  FIR Filter Implementation on ATmega2560
 
 Implementation of a **Finite Impulse Response (FIR) digital filter** using an **ATmega2560 microcontroller**, integrated with **DAC, ADC, and analog signal processing components**.
 
 ---
 
-## 📸 System Setup
+##  System Setup
 
 ![Circuit](setup_circuit.png)
 
 ---
 
-## 📄 Project Report
+##  Project Report
 
-📥 [Download Full Report](Report_Alexandre_TLB2_PSI.pdf)
+ [Download Full Report](Report_Alexandre_TLB2_PSI.pdf)
 
 ---
 
-## 🧠 Overview
+##  Overview
 
 This project focuses on the **design, implementation, and validation of a FIR digital filter**.
 
@@ -29,9 +29,9 @@ The system combines:
 
 ---
 
-## ⚙️ System Architecture
+##  System Architecture
 
-### 🔌 Hardware Components
+###  Hardware Components
 
 - ATmega2560 (Arduino)
 - DAC0832 (Digital-to-Analog Converter)
@@ -39,11 +39,11 @@ The system combines:
 - Breadboard + Signal Generator
 - PicoScope (signal analysis)
 
-📌 The system converts digital signals into analog output using DAC and op-amp stages.
+The system converts digital signals into analog output using DAC and op-amp stages.
 
 ---
 
-## 🔄 Signal Flow
+##  Signal Flow
 
 ```
 Analog Input → ADC → FIR Filter (Assembly) → DAC → Op-Amp → Output Signal
@@ -51,7 +51,7 @@ Analog Input → ADC → FIR Filter (Assembly) → DAC → Op-Amp → Output Sig
 
 ---
 
-## 🧪 FIR Filter Design
+##  FIR Filter Design
 
 - Order: **N = 25**
 - Cutoff frequency: **wc = 0.002**
@@ -67,7 +67,7 @@ b = fir1(N, wc);
 
 ---
 
-## 💻 Embedded Implementation
+##  Embedded Implementation
 
 - Assembly programming (AVR)
 - Interrupt-driven ADC reading
@@ -82,19 +82,19 @@ y[n] = Σ b[k] * x[n-k]
 
 ---
 
-## 📊 Results
+##  Results
 
 - Sampling frequency: **8362 Hz**
 - Tested across frequencies: **10 Hz → 1000 Hz**
 
-📉 Observations:
+Observations:
 - Stable response at low frequencies
 - Attenuation at higher frequencies
 - Differences between theoretical and experimental results
 
 ---
 
-## 📈 Analysis
+##  Analysis
 
 Comparison between:
 
@@ -107,7 +107,7 @@ Includes:
 
 ---
 
-## 💻 Technologies Used
+##  Technologies Used
 
 - Assembly (AVR)
 - MATLAB
@@ -117,15 +117,15 @@ Includes:
 
 ---
 
-## 📚 Academic Context
+##  Academic Context
 
-- 🎓 Electrical and Computer Engineering  
-- 🏫 University of Beira Interior  
-- 📘 Course: Signal and Image Processing  
+-  Electrical and Computer Engineering  
+-  University of Beira Interior  
+-  Course: Signal and Image Processing  
 
 ---
 
-## 👨‍💻 Author
+##  Author
 
 **Alexandre Saraiva**
 
@@ -137,7 +137,7 @@ https://github.com/ALEXs-G
 
 ---
 
-## 🚀 Key Skills Demonstrated
+##  Key Skills Demonstrated
 
 ✔ Digital Signal Processing (DSP)  
 ✔ Embedded systems programming  
@@ -147,7 +147,7 @@ https://github.com/ALEXs-G
 
 ---
 
-## ⚠️ Challenges
+##  Challenges
 
 - Hardware limitations (ADC issues)
 - Noise and signal distortion
@@ -155,7 +155,7 @@ https://github.com/ALEXs-G
 
 ---
 
-## 🔥 Why This Project Matters
+##  Why This Project Matters
 
 This project shows:
 
