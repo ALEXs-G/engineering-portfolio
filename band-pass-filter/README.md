@@ -1,22 +1,22 @@
-# 🎛️ Analog Band-Pass Filter Design and Implementation
+# Analog Band-Pass Filter Design and Implementation
 
 Design, implementation, and experimental validation of a **2nd-order analog band-pass filter** built by cascading a **Chebyshev high-pass filter** and a **Chebyshev low-pass filter**.
 
 ---
 
-## 📸 Hardware Setup
+## Hardware Setup
 
 ![Band-Pass Filter Setup](Bpass.png)
 
 ---
 
-## 📄 Project Report
+## Project Report
 
-📥 [Download Full Report](Report_Alexandre_TLB1_PSI.pdf)
+[Download Full Report](Report_Alexandre_TLB1_PSI.pdf)
 
 ---
 
-## 🧠 Overview
+## Overview
 
 This project focused on the development of an **analog band-pass filter** capable of selecting a specific frequency range while attenuating signals outside that band.
 
@@ -29,7 +29,7 @@ Both stages were designed with **Chebyshev characteristics** and then connected 
 
 ---
 
-## 🎯 Design Specifications
+## Design Specifications
 
 - **Lower cutoff frequency:** 1500 Hz
 - **Upper cutoff frequency:** 10 kHz
@@ -38,7 +38,7 @@ Both stages were designed with **Chebyshev characteristics** and then connected 
 
 ---
 
-## ⚙️ Hardware Components
+## Hardware Components
 
 - Breadboard
 - Signal generator
@@ -62,19 +62,17 @@ Both stages were designed with **Chebyshev characteristics** and then connected 
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 The band-pass filter was obtained by cascading:
 
-```text
 Input → High-Pass Stage → Low-Pass Stage → Output
-```
 
 This allows frequencies between **1500 Hz and 10 kHz** to pass, while attenuating lower and higher frequency components.
 
 ---
 
-## 💻 MATLAB Design
+## MATLAB Design
 
 MATLAB was used to:
 
@@ -86,7 +84,7 @@ MATLAB was used to:
 
 ---
 
-## 📊 Experimental Results
+## Experimental Results
 
 The experimental response was measured using **PicoScope 7** for frequencies between **1000 Hz and 12000 Hz**.
 
@@ -98,7 +96,7 @@ The experimental response was measured using **PicoScope 7** for frequencies bet
 
 ---
 
-## 🔲 Square Wave Validation
+## Square Wave Validation
 
 The filter was also tested using square waves at:
 
@@ -111,7 +109,7 @@ The comparison between MATLAB simulations and PicoScope measurements showed that
 
 ---
 
-## 📈 Skills Demonstrated
+## Skills Demonstrated
 
 - Analog signal processing
 - Filter design
@@ -122,7 +120,7 @@ The comparison between MATLAB simulations and PicoScope measurements showed that
 
 ---
 
-## 💻 Tools Used
+## Tools Used
 
 - MATLAB
 - PicoScope 7
@@ -131,33 +129,31 @@ The comparison between MATLAB simulations and PicoScope measurements showed that
 
 ---
 
-## 📚 Academic Context
+## Academic Context
 
-- 🎓 Electrical and Computer Engineering
-- 🏫 University of Beira Interior
-- 📘 Course: Signal and Image Processing
+- Electrical and Computer Engineering
+- University of Beira Interior
+- Course: Signal and Image Processing
 
 ---
 
-## 👨‍💻 Author
+## Author
 
 **Alexandre Saraiva**
 
-🔗 LinkedIn  
+LinkedIn  
 https://linkedin.com/in/alexandre-saraiva12
 
-💻 GitHub  
+GitHub  
 https://github.com/ALEXs-G
 
 ---
 
-## 🚀 Why This Project Matters
+## Why This Project Matters
 
 This project demonstrates:
 
-✔ Analog electronics design  
-✔ Frequency-domain analysis  
-✔ Practical validation of theoretical models  
-✔ Engineering workflow from design → implementation → testing  
-
----
+- Analog electronics design  
+- Frequency-domain analysis  
+- Practical validation of theoretical models  
+- Engineering workflow from design to implementation and testing  
