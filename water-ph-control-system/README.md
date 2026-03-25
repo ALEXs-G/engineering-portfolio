@@ -1,22 +1,22 @@
-# 💧 Water Filtration & pH Control System (ATmega2560)
+#  Water Filtration & pH Control System (ATmega2560)
 
 Embedded systems project implementing an **automated water filtration and pH regulation system** using the **ATmega2560 microcontroller** programmed in **Assembly**.
 
 ---
 
-## 📸 System Concept
+##  System Concept
 
 ![System Architecture](ArduinoCircuit.png)
 
 ---
 
-## 📄 Project Report
+##  Project Report
 
-📥 [Download Full Report](REPORT.pdf)
+ [Download Full Report](REPORT.pdf)
 
 ---
 
-## 🧠 Overview
+##  Overview
 
 This project simulates a **smart pool water management system** capable of:
 
@@ -29,30 +29,30 @@ The system operates using **interrupt-driven logic** and low-level hardware cont
 
 ---
 
-## ⚙️ System Functionality
+##  System Functionality
 
-### 🟢 Filtration Control
+###  Filtration Control
 - Triggered by external clock signal
 - System starts in **sleep mode**
 - Activates filtration cycle when triggered
 
-### 🧪 pH Measurement
+###  pH Measurement
 - Sensor reading initiated via control signal
 - ADC used to capture pH value
 - Value stored in input port
 
-### ⚖️ pH Comparison Logic
+###  pH Comparison Logic
 - Compares sensor value with reference value
 - Applies tolerance margin (+3)
 
-### 🔄 Automatic Regulation
+###  Automatic Regulation
 - If pH too high → activates **pH decrease (PhA)**
 - If pH too low → activates **pH increase (PhB)**
 - Runs continuously during filtration cycle
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
 The system is composed of:
 
@@ -62,14 +62,14 @@ The system is composed of:
 - Output ports (control signals)
 - Interrupt-based control logic
 
-📌 The system uses:
+The system uses:
 - Sleep mode
 - External interrupts
 - Polling and ADC conversion
 
 ---
 
-## 💻 Technologies Used
+##  Technologies Used
 
 - Assembly (AVR)
 - Embedded Systems Programming
@@ -79,7 +79,7 @@ The system is composed of:
 
 ---
 
-## 📊 Example Logic
+##  Example Logic
 
 | Sensor pH | Reference | Action |
 |----------|----------|--------|
@@ -89,15 +89,15 @@ The system is composed of:
 
 ---
 
-## 📚 Academic Context
+##  Academic Context
 
-- 🎓 Electrical and Computer Engineering  
-- 🏫 University of Beira Interior  
-- 📘 Course: Microprocessors  
+-  Electrical and Computer Engineering  
+-  University of Beira Interior  
+-  Course: Microprocessors  
 
 ---
 
-## 👨‍💻 Author
+##  Author
 
 **Alexandre Saraiva**
 
@@ -109,7 +109,7 @@ https://github.com/ALEXs-G
 
 ---
 
-## 🚀 Key Learning Outcomes
+##  Key Learning Outcomes
 
 - Assembly programming on AVR architecture
 - Real-time system design
@@ -119,7 +119,7 @@ https://github.com/ALEXs-G
 
 ---
 
-## ⚠️ Notes
+##  Notes
 
 - Project implemented in an academic context
 - Some parts required iterative debugging and optimization
@@ -127,7 +127,7 @@ https://github.com/ALEXs-G
 
 ---
 
-## 🔥 Why This Project Matters
+##  Why This Project Matters
 
 This project demonstrates:
 
