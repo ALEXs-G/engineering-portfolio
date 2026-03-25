@@ -1,0 +1,51 @@
+Name Semaforo_Parte1;
+PartNo 0001;
+Date 2025-06-08;
+Revision 1.0;
+Designer ALEX;
+Company Projeto Escolar;
+Device g22v10;
+
+/* === Entradas: estado enviado pelo ATmega2560
+PIN 1 = Q0; /* Bit menos significativo (PA0) */
+PIN 2 = Q1; /* Bit médio (PA1) */
+PIN 3 = Q2; /* Bit mais significativo (PA2) */
+
+/* === Saídas – Semáforos de veículos === */
+PIN 19 = A_G; /* Semáforo A verde */
+PIN 18 = A_Y; /* Semáforo A amarelo */
+PIN 17 = A_R; /* Semáforo A vermelho */
+PIN 16 = B_G; /* Semáforo B verde */
+PIN 15 = B_Y; /* Semáforo B amarelo */
+PIN 14 = B_R; /* Semáforo B vermelho */
+PIN 13 = C_G; /* Semáforo C verde */
+PIN 12 = C_Y; /* Semáforo C amarelo */
+PIN 11 = C_R; /* Semáforo C vermelho */
+
+/* === Saídas – Semáforos dos peões (PA, PB, PC) === */
+PIN 10 = PA; /* Peão A */
+PIN 9 = PB; /* Peão B */
+PIN 8 = PC; /* Peão C */
+
+/* === Lógica para semáforos de veículos === */
+
+/* Semáforo A */
+A_G = !Q2 & !Q1 & Q0; A_Y = !Q2 & Q1 & !Q0; A_R = !(A_G # A_Y); /* Estado 1 */
+/* Estado 2 */
+/* Estados 3,4,5,6 → Q1=1 */
+
+/* Semáforo B */
+B_G = !Q2 & Q1 & Q0; B_Y = Q2 & !Q1 & !Q0; B_R = !(B_G # B_Y); /* Estado 3 */
+/* Estado 4 */
+/* Resto dos estados */
+
+/* Semáforo C */
+C_G = Q2 & !Q1 & Q0; C_Y = Q2 & Q1 & !Q0; C_R = !(C_G # C_Y); /* Estado 5 */
+/* Estado 6 */
+
+/* Resto */
+
+/* === Lógica para semáforos dos peões === */
+PA = A_R;
+PB = B_R;
+PC = C_R;
