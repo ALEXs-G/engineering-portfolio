@@ -1,4 +1,4 @@
-# 🌱 Smart Self-Sustainable Irrigation System
+#  Smart Self-Sustainable Irrigation System
 
 An autonomous irrigation system powered by solar energy designed to optimize water consumption in agricultural environments using IoT technology.
 
@@ -8,7 +8,7 @@ Authors: Alexandre Saraiva, Diogo Soares, Suennia Ramos
 
 ---
 
-# 📖 Project Overview
+#  Project Overview
 
 This project presents a **smart irrigation system** capable of automatically watering plants based on soil moisture conditions.
 
@@ -25,7 +25,7 @@ The system was designed for **oregano cultivation**, but can easily be adapted t
 
 ---
 
-# 🎥 Demonstration
+#  Demonstration
 
 Video demonstration of the working prototype:
 
@@ -33,11 +33,11 @@ https://youtu.be/8IsAK37pPTY
 
 ---
 
-# ⚙️ System Architecture
+#  System Architecture
 
 The system consists of four main subsystems:
 
-### 1️⃣ Sensing Layer
+### 1️ Sensing Layer
 
 Sensors collect environmental data:
 
@@ -48,7 +48,7 @@ These sensors monitor the conditions required for irrigation.
 
 ---
 
-### 2️⃣ Processing Layer
+### 2️ Processing Layer
 
 An **ESP8266 microcontroller** processes sensor data and decides whether irrigation should be activated.
 
@@ -61,7 +61,7 @@ Responsibilities:
 
 ---
 
-### 3️⃣ Actuation Layer
+### 3️ Actuation Layer
 
 A **water pump** is activated automatically when soil moisture falls below the defined threshold.
 
@@ -69,7 +69,7 @@ This ensures plants receive water only when needed.
 
 ---
 
-### 4️⃣ IoT Monitoring Layer
+### 4️ IoT Monitoring Layer
 
 Sensor data is transmitted to the **ThingSpeak cloud platform**.
 
@@ -85,7 +85,7 @@ https://thingspeak.mathworks.com/channels/2914672
 
 ---
 
-# 🔌 Hardware Components
+#  Hardware Components
 
 Main hardware used in the project:
 
@@ -102,7 +102,7 @@ Main hardware used in the project:
 
 ---
 
-# 🖥️ Software Technologies
+#  Software Technologies
 
 Programming and development tools used:
 
@@ -114,19 +114,19 @@ Programming and development tools used:
 
 ---
 ![material](images/PCB.jpeg)
-# 🧠 Control Logic
+#  Control Logic
 
 The irrigation logic follows a simple control algorithm:
 
-1️⃣ Read soil moisture sensor  
-2️⃣ Compare value with threshold  
-3️⃣ If soil is dry → activate pump  
-4️⃣ If soil moisture adequate → keep pump off  
-5️⃣ Send sensor data to ThingSpeak
+1️ Read soil moisture sensor  
+2️ Compare value with threshold  
+3️ If soil is dry → activate pump  
+4️ If soil moisture adequate → keep pump off  
+5️ Send sensor data to ThingSpeak
 
 ---
 
-# ⚡ Power System
+#  Power System
 
 The system is **fully autonomous** using renewable energy.
 
@@ -139,7 +139,7 @@ This allows the system to operate in remote agricultural environments without ex
 
 ---
 
-# 🧪 Results
+#  Results
 
 The prototype successfully demonstrated:
 
@@ -151,7 +151,7 @@ Estimated **water consumption reduction: ~60%**
 
 ---
 
-# 🚀 Possible Improvements
+#  Possible Improvements
 
 Future developments could include:
 
@@ -163,21 +163,21 @@ Future developments could include:
 
 ---
 
-# 📷 Prototype
+#  Prototype
 
 Example prototype implementation:
 
 ![Prototype](images/prototype.jpg)
 
 ---
-# 📄 Full Project Report
+#  Full Project Report
 
 You can read the complete academic report here:
 
 ➡️ [Autonomous-smart-irrigation-system](RelatorioSISTEMAIrrigacaoFinal.pdf)
 
 
-# 🎓 Academic Context
+#  Academic Context
 
 Course: Electrical and Computer Engineering  
 University: University of Beira Interior  
@@ -185,7 +185,7 @@ Course Unit: Electrical Project
 
 ---
 
-# 👨‍💻 Author
+#  Author
 
 Alexandre Saraiva  
 
