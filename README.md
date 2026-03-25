@@ -5,4 +5,4 @@ Portfolio of engineering projects developed during my Electrical and Computer En
 
 
 
-![Eletrical Projects](EECprojects.png)
+![Eletrical Projects](portfolio.png)
