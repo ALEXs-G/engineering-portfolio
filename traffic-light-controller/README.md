@@ -1,22 +1,22 @@
-# 🚦 Traffic Light Control System (ATmega2560)
+#  Traffic Light Control System (ATmega2560)
 
 Embedded systems project implementing a **traffic light controller with pedestrian support**, using the **ATmega2560 microcontroller** and **Assembly programming**.
 
 ---
 
-## 📸 System Prototype
+##  System Prototype
 
 ![Traffic Light System](setup.jpg)
 
 ---
 
-## 📄 Project Report
+##  Project Report
 
 📄 [Technical Report – Traffic Light Control System](MICRO2lab25.pdf)
 
 ---
 
-## 🧠 Overview
+##  Overview
 
 This project implements a **real-time traffic light control system** with:
 
@@ -29,26 +29,26 @@ The system was fully developed in **Assembly**, providing low-level control over
 
 ---
 
-## ⚙️ System Features
+##  System Features
 
-### 🚗 Traffic Light Cycle
+###  Traffic Light Cycle
 - Green → Yellow → Red sequence
 - Timed using software counters (~500 ms resolution)
 
-### 🚶 Pedestrian Request (INT0)
+###  Pedestrian Request (INT0)
 - Triggered by external button
 - Forces safe transition:
   - Vehicles → Red
   - Pedestrians → Green
 
-### 🚶‍♂️ Independent Crossing (INT1)
+###  Independent Crossing (INT1)
 - Separate pedestrian crossing
 - Does not interrupt main traffic flow
 - Includes minimum delay between activations (30s)
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
 The system is based on:
 
@@ -59,7 +59,7 @@ The system is based on:
 
 ---
 
-## 🔌 Hardware Components
+##  Hardware Components
 
 - ATmega2560 (Arduino Mega)
 - LEDs (traffic lights simulation)
@@ -69,7 +69,7 @@ The system is based on:
 
 ---
 
-## 💻 Technologies Used
+##  Technologies Used
 
 - Assembly (AVR)
 - Embedded Systems
@@ -78,7 +78,7 @@ The system is based on:
 
 ---
 
-## 📊 Results
+##  Results
 
 The system successfully demonstrated:
 
@@ -86,21 +86,21 @@ The system successfully demonstrated:
 - Real-time response to interrupts
 - Concurrent operation of independent subsystems
 
-⚠️ Limitation:
+ Limitation:
 - After first interrupt, system may not handle new requests properly  
   (requires improvement in flag reset / control flow)
 
 ---
 
-## 📚 Academic Context
+##  Academic Context
 
-- 🎓 Electrical and Computer Engineering  
-- 🏫 University of Beira Interior  
-- 📘 Course: Microprocessors
+-  Electrical and Computer Engineering  
+-  University of Beira Interior  
+-  Course: Microprocessors
 
 ---
 
-## 👨‍💻 Author
+##  Author
 
 **Alexandre Saraiva**
 
@@ -112,7 +112,7 @@ https://github.com/ALEXs-G
 
 ---
 
-## 🚀 Future Improvements
+##  Future Improvements
 
 - Replace delay loops with hardware timers
 - Improve interrupt reactivation logic
@@ -121,7 +121,7 @@ https://github.com/ALEXs-G
 
 ---
 
-## ⭐ Key Takeaways
+##  Key Takeaways
 
 This project demonstrates:
 
