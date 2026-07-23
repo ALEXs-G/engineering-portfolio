@@ -1,56 +1,62 @@
-## Hybrid Renewable Energy System Simulation
+## Hybrid Renewable Energy System for a Small-Scale Grid-Connected Load
 
-This project was developed as part of the **Power Systems** course at the **University of Beira Interior (UBI)**. It presents the modeling and simulation of a **grid-connected Hybrid Renewable Energy System (HRES)** for the municipality of **Trancoso, Portugal**, integrating photovoltaic generation, wind power, battery energy storage, and the electrical grid. SEE_Alexandre_S.pdf
+This project was developed as part of the **Power Systems** course at the **University of Beira Interior (UBI)**. It focuses on the modeling and simulation of a **grid-connected Hybrid Renewable Energy System (HRES)** designed to supply a **small-scale electrical load with an average demand of 5 kW**. The system integrates photovoltaic generation, wind power, battery energy storage, and the utility grid to maximize renewable energy utilization while ensuring uninterrupted power supply. SEE_Alexandre_Saraiva_44485.pdf
 
-The simulation was implemented entirely in **MATLAB**, using hourly meteorological and electrical demand data, including solar irradiance, wind speed, ambient temperature, electricity demand, and dynamic electricity market prices. A rule-based Energy Management System (EMS) was developed to optimize energy flows between renewable generation, battery storage, and the utility grid. SEE_Alexandre_S.pdf
+The simulation was fully implemented in **MATLAB**, using hourly meteorological and electrical data, including solar irradiance, wind speed, ambient temperature, electrical demand, and dynamic electricity prices. A rule-based Energy Management System (EMS) was developed to intelligently control energy exchange between renewable sources, battery storage, and the electrical grid. SEE_Alexandre_Saraiva_44485.pdf
 
 ### Project Objectives
 
-- Model a photovoltaic power generation system.
-- Model a wind power generation system using a commercial wind turbine.
-- Implement a Battery Energy Storage System (BESS).
-- Develop a rule-based Energy Management Strategy (EMS).
+- Develop a MATLAB simulation model for a hybrid renewable energy system.
+- Model photovoltaic generation based on solar irradiance and temperature.
+- Model wind generation using a commercial small-scale wind turbine.
+- Integrate a Battery Energy Storage System (BESS).
+- Design a rule-based Energy Management Strategy (EMS).
 - Simulate energy exchange with the electrical grid.
-- Evaluate the technical performance of the hybrid system through weekly and annual simulations. SEE_Alexandre_S.pdf
+- Evaluate the technical performance of the hybrid system through weekly and annual simulations. SEE_Alexandre_Saraiva_44485.pdf
 
 ### System Configuration
 
-- **Photovoltaic Plant:** 6 MWp (24,000 Sharp ND-R250A5 modules)
-- **Wind Farm:** 3.6 MW (2 × Vestas V80-1800 wind turbines)
-- **Battery Storage:** 15.664 MWh (4 × Tesla Megapack 2 XL)
-- **Average Electrical Load:** 3.13 MW (Municipality of Trancoso)
-- **Simulation Environment:** MATLAB SEE_Alexandre_S.pdf
+- **Photovoltaic System:** 31.25 kWp (125 × Sharp ND-R250A5 solar panels)
+- **Wind System:** 4.8 kW (4 × Bergey BWC XL.1 wind turbines)
+- **Battery Storage:** BYD Battery-Box Commercial C130
+  - 131 kWh nominal capacity
+  - 91.7 kWh usable capacity
+  - 88 kW maximum charge/discharge power
+- **Average Electrical Load:** 5 kW
 
 ### Energy Management Strategy
 
-The implemented Energy Management System follows a rule-based control algorithm:
+The Energy Management System follows a rule-based control algorithm designed to optimize energy usage and operating costs:
 
-- Renewable generation is always used to supply the load first.
+- Renewable generation is always prioritized to supply the electrical load.
 - Excess renewable energy is stored in the battery whenever storage capacity is available.
-- Surplus energy is exported to the grid when battery storage is full or electricity prices are high.
-- During energy deficits, the battery is discharged whenever economically advantageous.
-- The electrical grid supplies any remaining demand, ensuring uninterrupted power delivery.
-- When electricity prices are low, the battery may be charged directly from the grid to reduce future operating costs. SEE_Alexandre_S.pdf
+- If the battery is fully charged or electricity prices are high, surplus energy is exported to the electrical grid.
+- During energy shortages, the system decides between battery discharge and grid import according to the battery State of Charge (SOC) and the current electricity price.
+- The utility grid guarantees continuous power supply whenever renewable generation and battery storage are insufficient. SEE_Alexandre_Saraiva_44485.pdf
 
-### Main Results
+### Simulation Results
 
-The developed hybrid energy system achieved:
+The developed hybrid energy system achieved the following annual performance:
 
-- **Annual electrical demand:** 27.45 GWh
-- **Renewable energy generation:** 16.06 GWh
-- **Grid energy imported:** 13.07 GWh
-- **Grid energy exported:** 1.54 GWh
-- **Renewable fraction:** 58.52%
-- **Energy self-sufficiency:** 52.38%
-- **Loss of Power Supply Probability (LPSP):** 0%, thanks to the grid connection. SEE_Alexandre_S.pdf
+- **Annual Load Demand:** 46.86 MWh
+- **Installed Renewable Capacity:** 36.05 kW
+- **Renewable Energy Generated:** 42.19 MWh
+- **Grid Energy Imported:** 14.89 MWh
+- **Grid Energy Exported:** 9.82 MWh
+- **Battery Charging Energy:** 4.57 MWh
+- **Battery Discharging Energy:** 4.16 MWh
+- **Battery Autonomy:** 18.3 hours
+
 
 ### Technologies Used
 
 - MATLAB
-- Renewable Energy Modeling
+- Renewable Energy Systems
+- Photovoltaic Energy Modeling
+- Wind Energy Modeling
 - Battery Energy Storage Systems (BESS)
 - Energy Management Systems (EMS)
 - Smart Grid Simulation
 - Power System Analysis
 
-This project demonstrates the design and simulation of a modern hybrid renewable energy system, highlighting the integration of renewable generation, battery storage, and intelligent energy management strategies to improve energy sustainability, operational flexibility, and economic performance.
+This project demonstrates the design and simulation of a small-scale smart hybrid energy system capable of combining renewable energy sources, battery storage, and grid interaction to improve energy efficiency, increase renewable energy utilization, and guarantee reliable power supply for distributed energy applications.
