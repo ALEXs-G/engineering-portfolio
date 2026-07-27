@@ -12,7 +12,8 @@ The simulation was fully implemented in **MATLAB**, using hourly meteorological 
 - Integrate a Battery Energy Storage System (BESS).
 - Design a rule-based Energy Management Strategy (EMS).
 - Simulate energy exchange with the electrical grid.
-- Evaluate the technical performance of the hybrid system through weekly and annual simulations. SEE_Alexandre_Saraiva_44485.pdf
+- Evaluate the technical performance of the hybrid system through weekly and annual simulations. 
+  ![](img.png)
 
 ### System Configuration
 
