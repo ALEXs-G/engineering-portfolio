@@ -22,13 +22,26 @@ The simulation was fully implemented in **MATLAB**, using hourly meteorological 
 
 ### System Configuration
 
-- **Photovoltaic System:** 31.25 kWp (125 × Sharp ND-R250A5 solar panels)
+- **Photovoltaic System:**
+- 31.25 kWp (125 × Sharp ND-R250A5 solar panels)
+
+  ![](sharp-nd-r250a5.jpg)
+
 - **Wind System:** 4.8 kW (4 × Bergey BWC XL.1 wind turbines)
+
+  ![](bergeyxl1.webp)
+
 - **Battery Storage:** BYD Battery-Box Commercial C130
   - 131 kWh nominal capacity
   - 91.7 kWh usable capacity
   - 88 kW maximum charge/discharge power
+
+    ![](c130byd.png)
+
+     ![](boxbyd.png)
+
 - **Average Electrical Load:** 5 kW
+ 
 
 ### Energy Management Strategy
 
@@ -38,7 +51,7 @@ The Energy Management System follows a rule-based control algorithm designed to 
 - Excess renewable energy is stored in the battery whenever storage capacity is available.
 - If the battery is fully charged or electricity prices are high, surplus energy is exported to the electrical grid.
 - During energy shortages, the system decides between battery discharge and grid import according to the battery State of Charge (SOC) and the current electricity price.
-- The utility grid guarantees continuous power supply whenever renewable generation and battery storage are insufficient. SEE_Alexandre_Saraiva_44485.pdf
+- The utility grid guarantees continuous power supply whenever renewable generation and battery storage are insufficient. 
 
 ### Simulation Results
 
