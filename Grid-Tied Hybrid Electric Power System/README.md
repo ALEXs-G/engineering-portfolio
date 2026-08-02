@@ -1,8 +1,13 @@
 ## Hybrid Renewable Energy System for a Small-Scale Grid-Connected Load
 
-This project was developed as part of the **Power Systems** course at the **University of Beira Interior (UBI)**. It focuses on the modeling and simulation of a **grid-connected Hybrid Renewable Energy System (HRES)** designed to supply a **small-scale electrical load with an average demand of 5 kW**. The system integrates photovoltaic generation, wind power, battery energy storage, and the utility grid to maximize renewable energy utilization while ensuring uninterrupted power supply. SEE_Alexandre_Saraiva_44485.pdf
+This project was developed as part of the **Power Systems** course at the **University of Beira Interior (UBI)**. It focuses on the modeling and simulation of a **grid-connected Hybrid Renewable Energy System (HRES)** designed to supply a **small-scale electrical load with an average demand of 5 kW**. The system integrates photovoltaic generation, wind power, battery energy storage, and the utility grid to maximize renewable energy utilization while ensuring uninterrupted power supply. 
 
-The simulation was fully implemented in **MATLAB**, using hourly meteorological and electrical data, including solar irradiance, wind speed, ambient temperature, electrical demand, and dynamic electricity prices. A rule-based Energy Management System (EMS) was developed to intelligently control energy exchange between renewable sources, battery storage, and the electrical grid. SEE_Alexandre_Saraiva_44485.pdf
+The simulation was fully implemented in **MATLAB**, using hourly meteorological and electrical data, including solar irradiance, wind speed, ambient temperature, electrical demand, and dynamic electricity prices. A rule-based Energy Management System (EMS) was developed to intelligently control energy exchange between renewable sources, battery storage, and the electrical grid. 
+
+
+## Project Report
+
+[Download Full Report](HRSsimulationREPORT.pdf)
 
 ### Project Objectives
 
