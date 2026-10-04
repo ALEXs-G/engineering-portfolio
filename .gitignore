@@ -1,41 +1,5 @@
-# --- Secrets (never commit) ---------------------------------------------
+# Local credentials (never commit)
 secrets.h
-**/config/secrets.h
-.env
-*.env
 
-# --- OS / editor ----------------------------------------------------------
+# OS
 .DS_Store
-Thumbs.db
-.vscode/
-.idea/
-*.swp
-
-# --- Python ---------------------------------------------------------------
-__pycache__/
-*.py[cod]
-.venv/
-venv/
-.pytest_cache/
-.ruff_cache/
-*.egg-info/
-.ipynb_checkpoints/
-
-# --- MATLAB ---------------------------------------------------------------
-*.asv
-*.m~
-slprj/
-
-# --- AVR / Arduino build output -------------------------------------------
-*.hex
-*.obj
-*.cof
-*.eep.hex
-build/
-
-# --- Generated outputs (re-created by scripts) ------------------------------
-cellular-traffic-simulation/results.txt
-cellular-traffic-simulation/pb_vs_*.png
-automated-test-measurement-bench/results/*
-!automated-test-measurement-bench/results/.gitkeep
-!automated-test-measurement-bench/results/example/

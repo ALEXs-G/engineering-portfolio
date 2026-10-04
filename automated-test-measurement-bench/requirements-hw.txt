@@ -1,3 +1,0 @@
-# Only needed for hardware mode (instrument templates in src/instruments.py)
-pyvisa>=1.13
-pyserial>=3.5
