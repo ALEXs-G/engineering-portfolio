@@ -1,0 +1,5 @@
+# Runtime: standard library only. Plots are optional (skipped if matplotlib is missing).
+matplotlib>=3.7
+# Test / lint
+pytest>=7.4
+ruff>=0.5

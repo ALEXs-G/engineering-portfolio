@@ -1,0 +1,10 @@
+{
+  "mode": "hardware",
+  "query_timeout_s": 0.2,
+  "hardware": {
+    "visa_resource": "USB0::0x0000::0x0000::SERIAL::INSTR",
+    "serial_port": "/dev/ttyUSB0",
+    "baudrate": 115200,
+    "source_uncertainty_c": null
+  }
+}
