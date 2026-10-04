@@ -1,52 +1,159 @@
-# Analog Band-Pass Filter (Cascaded 2nd-Order Chebyshev HP + LP)
+# Analog Band-Pass Filter Design and Implementation
 
-| | |
-|---|---|
-| **Status** | Complete (historical academic lab, January 2025) |
-| **Context** | Academic — *Processamento de Sinal e Imagem* (Signal and Image Processing), University of Beira Interior |
-| **My contribution** | Individual lab work: MATLAB design, breadboard build, PicoScope measurements, report |
-| **Evidence** | [Report (PT, PDF)](Report_Alexandre_TLB1_PSI.pdf) · [setup photo](Bpass.png) |
-| **Source code** | Not included in the repository. The MATLAB design code is listed in the report only. |
+Design, implementation, and experimental validation of a **2nd-order analog band-pass filter** built by cascading a **Chebyshev high-pass filter** and a **Chebyshev low-pass filter**.
 
 ---
 
-![Band-pass filter setup](Bpass.png)
+## Hardware Setup
 
-## Specification
+![Band-Pass Filter Setup](Bpass.png)
 
-| Parameter | Value |
-|---|---|
-| Lower cut-off (high-pass stage) | 1500 Hz |
-| Upper cut-off (low-pass stage) | 10 kHz |
-| Pass-band ripple | 2.2 dB |
-| Approximation / order | Chebyshev, 2nd order per stage |
+---
 
-## Implementation
+## Project Report
 
-`Input → 2nd-order high-pass → 2nd-order low-pass → Output`, using 2 × TL081 op-amps.
+[Download Full Report](Report_Alexandre_TLB1_PSI.pdf)
 
-| Component | Value used |
-|---|---|
-| R1, R2, R3, R4 | 1.3 kΩ, 4.3 kΩ, 1.0 kΩ, 24 kΩ |
-| C1, C2, C3, C4 | 10 nF, 33 nF, 8.2 nF, 6.8 nF |
+---
 
-MATLAB was used to design the stages, compute ideal component values, generate Bode plots and
-simulate square-wave filtering for comparison with the measurements.
+## Overview
 
-## Test & measurement
+This project focused on the development of an **analog band-pass filter** capable of selecting a specific frequency range while attenuating signals outside that band.
 
-| Test | Equipment | Result (from report) |
-|---|---|---|
-| Frequency response, 1–12 kHz | Signal generator, PicoScope 7 | Magnitude agreed reasonably with the model |
-| Phase response | PicoScope 7 | **Invalid:** the report flags the phase values as erroneous ("FALHA nos valores") because the time delay was extracted incorrectly |
-| Square-wave response at 450 Hz, 5750 Hz, 10 kHz and 30 kHz | Signal generator, PicoScope 7 | Waveforms consistent with the MATLAB simulation, especially in the pass band |
+The filter was built by combining:
 
-Measurement uncertainty and the agreement between the two curves were not quantified (no error table or tolerance).
-A tabulated set of PicoScope readings is included in the report.
+- A **2nd-order high-pass filter**
+- A **2nd-order low-pass filter**
 
-## Limitations and lessons
+Both stages were designed with **Chebyshev characteristics** and then connected in series to obtain the final band-pass response.
 
-- The phase measurement method was wrong. Phase should be measured from the time delay between
-  zero crossings at a known frequency, or with a gain-phase analyser or the scope's FRA mode,
-  and checked at one known point before a sweep.
-- No uncertainty analysis. Component tolerances (E-series values against ideal values) were not propagated to the cut-off frequencies.
+---
+
+## Design Specifications
+
+- **Lower cutoff frequency:** 1500 Hz
+- **Upper cutoff frequency:** 10 kHz
+- **Ripple:** 2.2 dB
+- **Filter type:** Analog Chebyshev band-pass
+
+---
+
+## Hardware Components
+
+- Breadboard
+- Signal generator
+- PicoScope 7
+- Power supply
+- 2 × TL081 operational amplifiers
+- 4 × resistors
+- 4 × capacitors
+
+### Real component values used
+
+- **R1 =** 1.3 kΩ
+- **R2 =** 4.3 kΩ
+- **R3 =** 1.0 kΩ
+- **R4 =** 24 kΩ
+
+- **C1 =** 10 nF
+- **C2 =** 33 nF
+- **C3 =** 8.2 nF
+- **C4 =** 6.8 nF
+
+---
+
+## Architecture
+
+The band-pass filter was obtained by cascading:
+
+Input → High-Pass Stage → Low-Pass Stage → Output
+
+This allows frequencies between **1500 Hz and 10 kHz** to pass, while attenuating lower and higher frequency components.
+
+---
+
+## MATLAB Design
+
+MATLAB was used to:
+
+- Design the Chebyshev filter stages
+- Compute ideal component values
+- Generate Bode plots
+- Compare theoretical and experimental responses
+- Simulate square-wave filtering
+
+---
+
+## Experimental Results
+
+The experimental response was measured using **PicoScope 7** for frequencies between **1000 Hz and 12000 Hz**.
+
+### Key observations
+
+- The magnitude response showed **reasonable agreement** with the theoretical model
+- The phase response contained measurement errors due to incorrect delay extraction
+- The filter successfully behaved as a **band-pass filter** in practical tests
+
+---
+
+## Square Wave Validation
+
+The filter was also tested using square waves at:
+
+- **450 Hz**
+- **5750 Hz**
+- **10 kHz**
+- **30 kHz**
+
+The comparison between MATLAB simulations and PicoScope measurements showed that the filter behaved as expected, especially in the pass-band region.
+
+---
+
+## Skills Demonstrated
+
+- Analog signal processing
+- Filter design
+- Chebyshev approximation
+- MATLAB modelling and validation
+- Experimental measurement with oscilloscope
+- Circuit implementation with operational amplifiers
+
+---
+
+## Tools Used
+
+- MATLAB
+- PicoScope 7
+- Analog electronics lab equipment
+- Breadboard prototyping
+
+---
+
+## Academic Context
+
+- Electrical and Computer Engineering
+- University of Beira Interior
+- Course: Signal and Image Processing
+
+---
+
+## Author
+
+**Alexandre Saraiva**
+
+LinkedIn  
+https://linkedin.com/in/alexandre-saraiva12
+
+GitHub  
+https://github.com/ALEXs-G
+
+---
+
+## Why This Project Matters
+
+This project demonstrates:
+
+- Analog electronics design  
+- Frequency-domain analysis  
+- Practical validation of theoretical models  
+- Engineering workflow from design to implementation and testing  
