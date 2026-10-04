@@ -4,7 +4,7 @@
 |---|---|
 | **Status** | Experimental, in development. Simulation mode is implemented and tested; hardware mode is an unvalidated template. |
 | **Context** | Personal project (2026) |
-| **My contribution** | Sole author |
+| **My contribution** | Author. Developed with AI coding assistance (Claude Code); see the commit co-author trailers. |
 | **Evidence** | [requirements](requirements.md) · [test plan](test-plan.md) · [architecture](docs/architecture.md) · [example report](results/example/report.md) · [tests](tests/) · CI workflow `.github/workflows/test-bench.yml` |
 
 > The current baseline implementation includes a simulated DUT so that the automated validation

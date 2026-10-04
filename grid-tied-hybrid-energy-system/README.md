@@ -144,8 +144,8 @@ run examples/run_example.m
 results = runtests('tests/test_hres.m')
 ```
 
-**Verification status of this refactor:** MATLAB and Octave were not available when the
-refactor was made. All `.m` files pass a syntax/lint check with MISS_HIT (`mh_lint`).
+**Verification status of this refactor:** the modular code was written in 2026 with AI coding assistance.
+MATLAB and Octave were not available when the refactor was made. All `.m` files pass a syntax/lint check with MISS_HIT (`mh_lint`).
 **None of the MATLAB code in `src/`, `examples/` or `tests/` has been executed yet.**
 Run `tests/test_hres.m` in MATLAB (R2018b or later) before relying on it.
 

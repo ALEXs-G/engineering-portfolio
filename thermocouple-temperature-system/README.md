@@ -5,7 +5,7 @@
 | **Status** | Complete (historical academic lab, June 2024). Characterization re-analysed in 2026 from the original data. |
 | **Context** | Academic — *Instrumentação e Medida* (Instrumentation and Measurement), University of Beira Interior |
 | **Team** | Alexandre Saraiva, Diogo Soares |
-| **My contribution** | Joint lab work with one teammate: circuit design calculations, breadboard build and measurements. The report does not split tasks between the two authors. I added the 2026 data analysis (`analysis/`) on my own. |
+| **My contribution** | Joint lab work with one teammate: circuit design calculations, breadboard build and measurements. The report does not split tasks between the two authors. The 2026 re-analysis (`analysis/`) was added later with AI coding assistance (see commit history). |
 | **Evidence** | [Report (PT, PDF)](REPORTKalexandreEEC.pdf) · [setup photo](termopar.png) · [dataset](data/measurements.csv) · [analysis script](analysis/characterize.py) · [generated results](results/characterization.md) |
 
 ---

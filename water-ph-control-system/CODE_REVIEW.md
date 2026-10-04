@@ -6,6 +6,7 @@
 | Reviewed copy | [`codeController_reviewed.asm`](codeController_reviewed.asm) |
 | Specification | [REPORT.pdf](REPORT.pdf), section 3 ("Problema") |
 | Review date | 2026-10-04 |
+| Reviewer | AI-assisted review (Claude Code), commissioned by the repository owner |
 | Tools | AVRA 1.4.2 with `m2560def.inc`; manual review against the ATmega2560 datasheet register map |
 | Hardware / simulator run | **None.** No AVR simulator was available for this review, and the reviewed copy has not been run anywhere. |
 

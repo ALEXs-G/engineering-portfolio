@@ -4,7 +4,7 @@
 |---|---|
 | **Status** | Historical academic exercise. The committed source **does not assemble** (see [code review](CODE_REVIEW.md)). |
 | **Context** | Academic — *Microprocessadores* (Microprocessors), University of Beira Interior, June 2024 |
-| **My contribution** | Individual report. The report's conclusion states that the code was completed using code provided by colleagues. The 2026 code review in this folder is my own work. |
+| **My contribution** | Individual report. The report's conclusion states that the code was completed using code provided by colleagues. The 2026 code review in this folder was produced with AI coding assistance (see commit history). |
 | **Evidence** | [Report (PT, PDF)](REPORT.pdf) · [original source](codeControler.asm) · [code review](CODE_REVIEW.md) · [reviewed source](codeController_reviewed.asm) |
 | **Test evidence** | Simulation in AVR Studio (report §5); 4-case state table (report §4). No hardware test is documented. |
 
