@@ -3,16 +3,15 @@
 #include <ThingSpeak.h>
 
 // =====================================================
-// Configuração Wi-Fi
+// Configuração Wi-Fi / ThingSpeak
+// Credenciais definidas em secrets.h (não versionado).
+// Copiar secrets.example.h para secrets.h e preencher.
 // =====================================================
-constexpr char WIFI_SSID[]     = "M23 de Alexandre";
-constexpr char WIFI_PASSWORD[] = "************";
-
-// =====================================================
-// Configuração ThingSpeak
-// =====================================================
-constexpr unsigned long THINGSPEAK_CHANNEL_ID = 2914672;
-constexpr char THINGSPEAK_API_KEY[] = "KX31KE59JBRZURX8";
+#if __has_include("secrets.h")
+#include "secrets.h"
+#else
+#error "secrets.h not found: copy secrets.example.h to secrets.h and fill in your credentials."
+#endif
 
 // =====================================================
 // Definição de pinos
