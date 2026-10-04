@@ -1,167 +1,51 @@
-#  FIR Filter Implementation on ATmega2560
+# FIR Low-Pass Filter on ATmega2560 (AVR Assembly) with DAC0832 Output
 
-Implementation of a **Finite Impulse Response (FIR) digital filter** using an **ATmega2560 microcontroller**, integrated with **DAC, ADC, and analog signal processing components**.
+| | |
+|---|---|
+| **Status** | Complete, with documented discrepancies between theory and measurement (historical academic lab, January 2025) |
+| **Context** | Academic — *Processamento de Sinal e Imagem* (Signal and Image Processing), University of Beira Interior |
+| **My contribution** | Individual lab work: Assembly implementation, DAC/op-amp circuit, measurements, report |
+| **Evidence** | [Report (PT, PDF)](Report_Alexandre_TLB2_PSI.pdf) · [circuit photo](setup_circuit.png) · [response plot](PSI-FIR.png) |
+| **Source code** | Not included in the repository. The Assembly and MATLAB listings are in the report only. |
 
 ---
-
-##  System Setup
 
 ![Circuit](setup_circuit.png)
 
----
-
-##  Project Report
-
- [Download Full Report](Report_Alexandre_TLB2_PSI.pdf)
-
----
-
-##  Overview
-
-This project focuses on the **design, implementation, and validation of a FIR digital filter**.
-
-The system combines:
-
-- Embedded programming (Assembly)
-- Analog signal processing
-- Digital-to-Analog conversion (DAC)
-- MATLAB-based filter design
-
----
-
-##  System Architecture
-
-###  Hardware Components
-
-- ATmega2560 (Arduino)
-- DAC0832 (Digital-to-Analog Converter)
-- LF356 Operational Amplifier
-- Breadboard + Signal Generator
-- PicoScope (signal analysis)
-
-The system converts digital signals into analog output using DAC and op-amp stages.
-
----
-
-##  Signal Flow
+## Signal chain
 
 ```
-Analog Input → ADC → FIR Filter (Assembly) → DAC → Op-Amp → Output Signal
+Signal generator → ADC (ATmega2560) → FIR in AVR Assembly → PORTA → DAC0832 → LF356 (I→V) → PicoScope 7
 ```
 
----
+## Design
 
-##  FIR Filter Design
+- MATLAB `fir1(25, 0.002)`: 26 taps, Hamming window. Coefficients scaled by 256 and rounded to integers for 8-bit `mul`.
+- Difference equation `y[n] = Σ b[k] · x[n−k]`, with a delay line in memory and an interrupt-driven ADC.
+- Sampling frequency reported: **8362 Hz**.
 
-- Order: **N = 25**
-- Cutoff frequency: **wc = 0.002**
-- Designed using MATLAB (`fir1`)
+**Design note (derived in 2026, not in the report).** With fs = 8362 Hz, a normalized cut-off of
+0.002 is nominally 8.4 Hz, which is far below what 26 taps can resolve. Re-computing the `fir1`
+response with fs = 8362 Hz gives a realized **−3 dB point at ≈ 215 Hz** (−6 dB at ≈ 300 Hz).
+The integer coefficients from this re-computation (2, 2, 3, 4, 6, 7, 10, …) match the ones in the
+report's Assembly listing. Measurements over 10–1000 Hz should therefore be compared with the
+realized response, not with the nominal cut-off.
 
-### MATLAB Example:
+## Test & measurement
 
-```matlab
-N = 25;
-wc = 0.002;
-b = fir1(N, wc);
-```
+| Step | Result (from report) |
+|---|---|
+| Pass-through test (y[n] = x[n]) to verify the ADC → DAC → op-amp chain | Worked as intended |
+| Hardware fault | ADC0 (PA0) on the board did not work; the input was moved to ADC1 (PA1) after debugging |
+| Frequency sweep 10 Hz – 1000 Hz (log steps), gain and phase | Low-pass behaviour observed. Measured attenuation was **greater than predicted** at higher frequencies, and the phase showed unexpected variation. |
 
----
+The report attributes the discrepancies to data-extraction errors, noise and component
+tolerances. These causes were not isolated experimentally.
 
-##  Embedded Implementation
+## Limitations and next steps
 
-- Assembly programming (AVR)
-- Interrupt-driven ADC reading
-- Real-time signal processing
-- Memory-based delay line (X[n-k])
-
-### Filter Equation:
-
-```
-y[n] = Σ b[k] * x[n-k]
-```
-
----
-
-##  Results
-
-- Sampling frequency: **8362 Hz**
-- Tested across frequencies: **10 Hz → 1000 Hz**
-
-Observations:
-- Stable response at low frequencies
-- Attenuation at higher frequencies
-- Differences between theoretical and experimental results
-
----
-
-##  Analysis
-
-Comparison between:
-
-- MATLAB simulation
-- Real hardware measurements
-
-Includes:
-- Gain (dB)
-- Phase response
-
----
-
-##  Technologies Used
-
-- Assembly (AVR)
-- MATLAB
-- Embedded Systems
-- Signal Processing
-- ADC/DAC integration
-
----
-
-##  Academic Context
-
--  Electrical and Computer Engineering  
--  University of Beira Interior  
--  Course: Signal and Image Processing  
-
----
-
-##  Author
-
-**Alexandre Saraiva**
-
-🔗 LinkedIn  
-https://linkedin.com/in/alexandre-saraiva12  
-
-💻 GitHub  
-https://github.com/ALEXs-G  
-
----
-
-##  Key Skills Demonstrated
-
-✔ Digital Signal Processing (DSP)  
-✔ Embedded systems programming  
-✔ MATLAB + hardware integration  
-✔ ADC/DAC communication  
-✔ Real-time filtering  
-
----
-
-##  Challenges
-
-- Hardware limitations (ADC issues)
-- Noise and signal distortion
-- Precision vs real-world implementation gap
-
----
-
-##  Why This Project Matters
-
-This project shows:
-
-✔ Strong understanding of DSP  
-✔ Ability to implement theory in real hardware  
-✔ Low-level programming skills  
-✔ Engineering problem-solving  
-
----
+- Quantization: 8-bit coefficients (×256) and 8-bit samples. The MATLAB comparison should use
+  the quantized coefficients rather than the floating-point `fir1` output.
+- Model the DAC0832 zero-order hold (sinc roll-off) and any reconstruction filtering. This could
+  explain extra attenuation at higher frequencies. Hypothesis, not tested.
+- Verify the effective sampling rate by toggling a pin in the ISR and measuring it on the scope.

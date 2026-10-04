@@ -1,111 +1,39 @@
-# Microprocessor Architecture and Controller Implementation
+# 4-bit Datapath and Controller in TTL + GAL22V10
 
-Hardware implementation of a simplified microprocessor architecture developed during the **Microprocessors** course at the **University of Beira Interior**.
-
-This project includes the design and implementation of:
-
-- Arithmetic Logic Unit (ALU)
-- Data registers
-- Register memory
-- Flags register
-- Sequential controller
+| | |
+|---|---|
+| **Status** | Partial. The ALU was tested in hardware. The controller was programmed but not functionally validated (report §8.2). |
+| **Context** | Academic — *Microprocessadores* (Microprocessors), University of Beira Interior, 2026 |
+| **My contribution** | Single-author report (Alexandre Saraiva), although the text refers to "we"; task split not documented. |
+| **Evidence** | [Report (PT, PDF)](MICRO1lab25.pdf) · [architecture diagram and photo](architecture-diagram.png) |
+| **Source code** | WinCUPL listings are in the report only; no `.pld` files are in this folder. |
 
 ---
 
-## Overview
+![Architecture diagram and hardware prototype](architecture-diagram.png)
 
-The goal of this laboratory project was to implement and test a digital architecture capable of performing basic arithmetic operations in hardware.
+## Architecture
 
-The system was built using TTL integrated circuits and programmable logic devices, namely:
+| Block | Implementation |
+|---|---|
+| Input register, accumulator, flags register | 74LS173 |
+| Register file (4 × 4 bit) | 74LS670 |
+| ALU | GAL22V10 (Boolean equations in WinCUPL) |
+| Controller (FSM) | GAL22V10 (WinCUPL): register writes, memory access, ALU operation select, result store, flag update |
 
-- 74LS173
-- 74LS670
-- GAL22V10
+Operations: add, subtract (two's complement), increment, decrement.
+Flags: zero (FZ), carry (FC) and overflow (FOV).
 
-The architecture supports arithmetic operations such as:
+## Test results (from report §8)
 
-- Addition
-- Subtraction
-- Increment
-- Decrement
+| Test | Result |
+|---|---|
+| ALU tested in isolation (operands A, B; controls M1, M0; outputs F3..F0, FZ, FC, FOV): A + B with carry and overflow, A − B, A + 1, A − 1, zero detection | Pass, for all cases reported |
+| Controller integrated with the datapath | **Not tested.** Not completed because of time. |
 
-It also updates status flags such as:
+The report does not include a test vector table (operand values and expected and observed outputs).
 
-- Zero
-- Carry
-- Sign
-- Overflow
+## Improvements (not implemented)
 
----
-
-## Architecture Diagram and Hardware Prototype
-
-![Architecture Diagram](architecture-diagram.png)
-
----
-
-## Main Components
-
-- **74LS173** — used as input register, accumulator and flags register
-- **74LS670** — used as 4x4 register memory
-- **GAL22V10** — used to implement both the ALU and the control unit
-
----
-
-## Control Unit
-
-The controller was implemented as a **finite state machine (FSM)** programmed in **WinCupl** for the GAL22V10.
-
-It generates the control signals required for:
-
-- register writes
-- memory access
-- ALU operation selection
-- result storage
-- flag updates
-
----
-
-## Results
-
-The ALU was successfully tested and validated in hardware.
-
-The controller was implemented, although full hardware validation of the complete system remained unfinished due to time constraints.
-
----
-
-## Technical Skills Demonstrated
-
-- Digital systems design
-- Microprocessor architecture
-- Boolean logic
-- FSM design
-- Hardware prototyping
-- WinCupl / GAL programming
-- TTL logic integration
-
----
-
-## Project Report
-
-[Download full report (PDF)](MICRO1lab25.pdf)
-
----
-
-## Academic Context
-
-**Course:** Microprocessors  
-**University:** University of Beira Interior  
-**Degree:** Electrical and Computer Engineering
-
----
-
-## Author
-
-**Alexandre Saraiva**
-
-LinkedIn:  
-https://linkedin.com/in/alexandre-saraiva12
-
-GitHub:  
-https://github.com/ALEXs-G
+- Write an exhaustive ALU test vector table (2⁴ × 2⁴ × 4 operations) and generate the expected results in software.
+- Simulate the controller FSM in WinCUPL/WinSim before hardware integration, and step through it at a slow clock with LED probes on each control line.

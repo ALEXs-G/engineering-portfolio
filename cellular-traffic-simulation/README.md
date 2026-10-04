@@ -1,69 +1,42 @@
-# Cellular Traffic Simulation using Erlang-B
+# Cellular Traffic Dimensioning with Erlang-B (Python)
 
-This project models the **blocking probability** and **supported traffic** in cellular communication systems using the **Erlang-B formula**.
+| | |
+|---|---|
+| **Status** | Complete. Script runs and reproduces standard Erlang-B values. |
+| **Context** | Academic laboratory assignment (mobile/cellular communications), University of Beira Interior. Python re-implementation by the author. |
+| **My contribution** | Python implementation and notebook |
+| **Evidence** | [`erlang_b_simulation.py`](erlang_b_simulation.py) · [`erlang_b_simulation.ipynb`](erlang_b_simulation.ipynb) |
+| **Report** | Not included in the repository. The previous README referenced `docs/Trabalho Laboratorial 3.pdf`, which was never committed. |
 
-It is based on an academic laboratory assignment about blocking probability and supported traffic in cellular systems.
+---
 
-## Overview
+## What it computes
 
-In a cellular system with a limited number of channels, new calls may be blocked when all channels are occupied. This project evaluates that effect by computing:
+Erlang-B blocking probability, using the numerically stable recursion
+`B(0) = 1`, `B(k) = ρ·B(k−1) / (k + ρ·B(k−1))`:
 
-- Blocking probability as a function of the number of channels
-- Blocking probability as a function of offered traffic
-- Maximum supported traffic for a target blocking probability
+1. Blocking probability against the number of channels N = 4…15, for ρ = 0.5…8 Erlang
+2. Blocking probability against offered traffic ρ = 1…3 Erlang, for N = 10, 11, 15
+3. Maximum supported traffic for a target blocking probability (2 %, and 0.1 % for N = 11), found by a 0.01 Erlang search
 
-## Topics Covered
+## Output (verified run)
 
-- Erlang-B traffic model
-- Blocking probability
-- Supported traffic analysis
-- Cellular systems dimensioning
-- Python-based engineering simulation
+```
+=== Supported traffic for Pb_max = 2% ===
+N=10: rho ≈ 5.08, Pb ≈ 0.019921
+N=11: rho ≈ 5.84, Pb ≈ 0.019972
+N=15: rho ≈ 9.00, Pb ≈ 0.019868
 
-## Technologies Used
+=== Supported traffic for N = 11 and Phf_max = 0.1% ===
+N=11: rho ≈ 3.65, Pb ≈ 0.000998
+```
 
-- Python
-- NumPy
-- Matplotlib
+These agree with published Erlang-B tables (e.g. N = 10 at 2 % ≈ 5.08 E; N = 15 at 2 % ≈ 9.01 E).
+The 9.00 E result is a consequence of the 0.01 E search step.
 
-## Files
-
-- `erlang_b_simulation.py` — main simulation script
-- `docs/Trabalho Laboratorial 3.pdf` — original report
-
-## How to Run
-
-Install dependencies:
+## Run
 
 ```bash
 pip install -r requirements.txt
+python erlang_b_simulation.py      # prints tables, writes results.txt and two PNG plots
 ```
-
-Run the simulation:
-
-```bash
-python erlang_b_simulation.py
-```
-
-## Example Analyses
-
-The script generates:
-
-1. Blocking probability vs number of channels
-2. Blocking probability vs offered traffic
-3. Supported traffic for a maximum blocking probability target
-
-## Academic Context
-
-- Course: Mobile Communications / Cellular Systems
-- University: University of Beira Interior
-
-## Author
-
-**Alexandre Saraiva**
-
-LinkedIn:  
-https://linkedin.com/in/alexandre-saraiva12
-
-GitHub:  
-https://github.com/ALEXs-G
