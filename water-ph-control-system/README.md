@@ -1,139 +1,62 @@
-#  Water Filtration & pH Control System (ATmega2560)
+# Pool Filtration & pH Control — ATmega2560 in AVR Assembly
 
-Embedded systems project implementing an **automated water filtration and pH regulation system** using the **ATmega2560 microcontroller** programmed in **Assembly**.
-
----
-
-##  System Concept
-
-![System Architecture](ArduinoCircuit.png)
-
----
-
-##  Project Report
-
- [Download Full Report](REPORT.pdf)
+| | |
+|---|---|
+| **Status** | Historical academic exercise. The committed source **does not assemble** (see [code review](CODE_REVIEW.md)). |
+| **Context** | Academic — *Microprocessadores* (Microprocessors), University of Beira Interior, June 2024 |
+| **My contribution** | Individual report. The report's conclusion states that the code was completed using code provided by colleagues. The 2026 code review in this folder is my own work. |
+| **Evidence** | [Report (PT, PDF)](REPORT.pdf) · [original source](codeControler.asm) · [code review](CODE_REVIEW.md) · [reviewed source](codeController_reviewed.asm) |
+| **Test evidence** | Simulation in AVR Studio (report §5); 4-case state table (report §4). No hardware test is documented. |
 
 ---
 
-##  Overview
+## Specification (report §3)
 
-This project simulates a **smart pool water management system** capable of:
+Control a pool water-filtration system with an ATmega2560:
 
-- Activating filtration cycles automatically
-- Measuring water pH levels using sensors
-- Comparing real-time values with a reference
-- Automatically correcting pH levels
+1. The controller sleeps until a clock (`ClkInicFilt`) triggers an interrupt that starts filtration. Output `Mon` = 1.
+2. During filtration, start a pH reading (`PhS` = 1). An interrupt signals that the reading is available.
+3. Compare the reading with an 8-bit reference port:
+   - reading > reference + 3 → `PhA` = 1 (lower the pH)
+   - reading < reference → `PhB` = 1 (raise the pH)
+4. Repeat until a second clock (`ClkTmpFilt`) ends the cycle. Then `Mon` = 0 and the controller returns to sleep.
 
-The system operates using **interrupt-driven logic** and low-level hardware control.
+![Concept](ArduinoCircuit.png)
 
----
+## Implementation (as written)
 
-##  System Functionality
+| Feature | Implementation |
+|---|---|
+| Low power | Idle sleep mode (`SMCR = $01`); wake on INT0 or ADC complete |
+| Start trigger | INT0, rising edge |
+| pH acquisition | On-chip ADC0, 8-bit left-adjusted, interrupt on completion. The spec defines an 8-bit input port instead. |
+| Decision | Band comparison \[ref, ref + 3\] driving PhA/PhB on PORTA |
+| Display | ADC value shifted onto PORTC LEDs |
 
-### 1-  Filtration Control
-- Triggered by external clock signal
-- System starts in **sleep mode**
-- Activates filtration cycle when triggered
+## Documented test cases (report §4)
 
-### 2- pH Measurement
-- Sensor reading initiated via control signal
-- ADC used to capture pH value
-- Value stored in input port
+| ADC value | Reference (+3) | PhA | PhB | Expected action | Reported valid |
+|---|---|---|---|---|---|
+| 8 | 5 (8) | 0 | 0 | Hold | Yes |
+| 0 | 1 (4) | 0 | 1 | Raise pH | Yes |
+| 10 | 6 (9) | 1 | 0 | Lower pH | Yes |
+| 6 | 10 (13) | 0 | 1 | Raise pH | Yes |
 
-### 3- pH Comparison Logic
-- Compares sensor value with reference value
-- Applies tolerance margin (+3)
+The report does not document which code version, simulator settings or stimulus files produced this table.
 
-### 4- Automatic Regulation
-- If pH too high → activates **pH decrease (PhA)**
-- If pH too low → activates **pH increase (PhB)**
-- Runs continuously during filtration cycle
+## Code review findings (2026)
 
----
+Full details are in [CODE_REVIEW.md](CODE_REVIEW.md).
 
-##  Architecture
+- The original source fails to assemble: `PINFILTER` is undefined.
+- High-severity defects: outputs are written to `PINx` registers, which toggles the pins instead of
+  setting them. The shutdown path falls through into `RETI` with an empty stack. The end-of-cycle
+  signal is read from a pin configured as an output, so the filtration loop cannot terminate.
+- [`codeController_reviewed.asm`](codeController_reviewed.asm) fixes only the unambiguous defects
+  and assembles with AVRA. Design-level issues that depend on the intended wiring are listed but not
+  changed. **The reviewed version has not been simulated or tested on hardware.**
 
-The system is composed of:
+## What this project shows
 
-- ATmega2560 (Arduino)
-- ADC module (analog to digital conversion)
-- Input ports (sensor + reference)
-- Output ports (control signals)
-- Interrupt-based control logic
-
-The system uses:
-- Sleep mode
-- External interrupts
-- Polling and ADC conversion
-
----
-
-##  Technologies Used
-
-- Assembly (AVR)
-- Embedded Systems Programming
-- ADC (Analog-to-Digital Conversion)
-- Interrupt handling
-- Low-level hardware control
-
----
-
-##  Example Logic
-
-| Sensor pH | Reference | Action |
-|----------|----------|--------|
-| Equal | Within tolerance | Maintain |
-| Higher | Above +3 | Decrease pH |
-| Lower | Below reference | Increase pH |
-
----
-
-##  Academic Context
-
--  Electrical and Computer Engineering  
--  University of Beira Interior  
--  Course: Microprocessors  
-
----
-
-##  Author
-
-**Alexandre Saraiva**
-
-🔗 LinkedIn  
-https://linkedin.com/in/alexandre-saraiva12  
-
-💻 GitHub  
-https://github.com/ALEXs-G  
-
----
-
-##  Key Learning Outcomes
-
-- Assembly programming on AVR architecture
-- Real-time system design
-- Interrupt-driven control systems
-- ADC integration and sensor processing
-- Hardware/software interaction
-
----
-
-##  Notes
-
-- Project implemented in an academic context
-- Some parts required iterative debugging and optimization
-- Focus on understanding embedded system architecture
-
----
-
-##  Why This Project Matters
-
-This project demonstrates:
-
-✔ Embedded systems design  
-✔ Real-world control system logic  
-✔ Low-level programming skills  
-✔ Sensor integration and automation  
-
----
+- Interrupt vector placement, sleep modes, external interrupts and ADC configuration on the ATmega2560 at register level.
+- A post-hoc code review that separates confirmed behaviour, defects, assumptions and suggested corrections.
