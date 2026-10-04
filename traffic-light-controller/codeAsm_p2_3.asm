@@ -40,8 +40,10 @@ START:
   sei
   clr r19 ; r19 será a flag do pedido
 verde:
-  ldi r21, 0x02 out PORTB, r21
-  ldi r22, 0x01 out PORTC, r22
+  ldi r21, 0x02
+  out PORTB, r21
+  ldi r22, 0x01
+  out PORTC, r22
 ; Verde carros
 ; Vermelho peões
   cpi r19, 0x02
@@ -52,7 +54,8 @@ verde:
 ; INTERRUPÇÃO INT1
 ; ======================
 INT1a:
-  ldi r19, 0x02 reti
+  ldi r19, 0x02
+  reti
 ; Pedido de peão (INT1)
 ; ======================
 ; VERIFICAÇÃO DO PEDIDO

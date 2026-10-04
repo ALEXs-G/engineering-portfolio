@@ -1,133 +1,46 @@
-#  Traffic Light Control System (ATmega2560)
+# Traffic-Light Controller with Pedestrian Interrupts — ATmega2560 (AVR Assembly) + GAL22V10
 
-Embedded systems project implementing a **traffic light controller with pedestrian support**, using the **ATmega2560 microcontroller** and **Assembly programming**.
-
----
-
-##  System Prototype
-
-![Traffic Light System](setup.jpg)
-
----
-
-##  Project Report
-
-📄 [Technical Report – Traffic Light Control System](MICRO2lab25.pdf)
+| | |
+|---|---|
+| **Status** | Partial. Parts 1 and 2 work; Part 3 does not accept repeated requests (documented limitation). |
+| **Context** | Academic — *Microprocessadores* (Microprocessors), University of Beira Interior, 2026 |
+| **My contribution** | Single-author report (Alexandre Saraiva); individual task split not documented. |
+| **Evidence** | [Report (PT, PDF)](MICRO2lab25.pdf) · [setup photo](setup.jpg) · source files below |
 
 ---
 
-##  Overview
+![Traffic light prototype](setup.jpg)
 
-This project implements a **real-time traffic light control system** with:
+## Function
 
-- Multiple traffic lanes (A, B, C)
-- Pedestrian crossing requests
-- External interrupt handling (INT0 and INT1)
-- Time-controlled state transitions
+| Part | Behaviour | Source |
+|---|---|---|
+| 1 | Three vehicle lights (A, B, C) cycle green → yellow → red. Software delay loops count 500 ms ticks (10 s green, 3 s yellow). | [`codeAssembly_Parte1.asm`](codeAssembly_Parte1.asm), [`codeWINCUPL_Parte1.pld`](codeWINCUPL_Parte1.pld) |
+| 2 | Pedestrian request on **INT0** (PD0). Accepted only while a light is green; forces yellow, then all-red, then the cycle resumes. The request is held in flag `r19`. | [`codeASM_parte2_INT.asm`](codeASM_parte2_INT.asm), [`codeAsm_p2_3.asm`](codeAsm_p2_3.asm) |
+| 3 | Independent crossing on **INT1** (PD1). Vehicles go to yellow then red; pedestrian lights on PORTC go green for 5 s. Minimum 30 s between activations. | [`code_p3_INtIn.asm`](code_p3_INtIn.asm), [`codeWINCUPL_Peoes.pld`](codeWINCUPL_Peoes.pld) |
 
-The system was fully developed in **Assembly**, providing low-level control over the hardware.
+The GAL22V10 decodes the light outputs; its logic is defined in the WinCUPL `.pld` files.
 
----
+## Test results (from report §7)
 
-##  System Features
+| Test | Result |
+|---|---|
+| Part 1 state sequence, 6 states, timing 10 s / 3 s | Pass, observed on LEDs |
+| Part 2: INT0 request during green | Pass |
+| Part 3: INT1 independent crossing, first activation | Pass |
+| Repeated INT0/INT1 requests after the first one | **Fail.** New requests are no longer recognized. The report suspects missing flag re-initialization or broken control flow after the interrupt is serviced. |
 
-###  Traffic Light Cycle
-- Green → Yellow → Red sequence
-- Timed using software counters (~500 ms resolution)
+Timing accuracy was specified as ±0.5 s on 500 ms ticks. No measured timing data is documented.
 
-###  Pedestrian Request (INT0)
-- Triggered by external button
-- Forces safe transition:
-  - Vehicles → Red
-  - Pedestrians → Green
+## Source code status
 
-###  Independent Crossing (INT1)
-- Separate pedestrian crossing
-- Does not interrupt main traffic flow
-- Includes minimum delay between activations (30s)
+As committed originally, all four `.asm` files failed to assemble because of copy artefacts:
+six lines with two instructions merged, and `recall` typed for `rcall`. These were corrected
+mechanically in commit `ac072e2`, with no logic changes. All four files now assemble with
+AVRA 1.4.2. The corrected files have not been re-tested on hardware.
 
----
+## Improvements (not implemented)
 
-##  Architecture
-
-The system is based on:
-
-- **ATmega2560 (AVR)**
-- GPIO control via PORTA, PORTB, PORTC
-- External interrupts (INT0, INT1)
-- Software timing loops
-
----
-
-##  Hardware Components
-
-- ATmega2560 (Arduino Mega)
-- LEDs (traffic lights simulation)
-- Push buttons (interrupt triggers)
-- Breadboard + wiring
-- Logic device (GAL22V10)
-
----
-
-##  Technologies Used
-
-- Assembly (AVR)
-- Embedded Systems
-- Digital Logic (PLD / GAL22V10)
-- Interrupt-driven programming
-
----
-
-##  Results
-
-The system successfully demonstrated:
-
-- Correct traffic sequencing
-- Real-time response to interrupts
-- Concurrent operation of independent subsystems
-
- Limitation:
-- After first interrupt, system may not handle new requests properly  
-  (requires improvement in flag reset / control flow)
-
----
-
-##  Academic Context
-
--  Electrical and Computer Engineering  
--  University of Beira Interior  
--  Course: Microprocessors
-
----
-
-##  Author
-
-**Alexandre Saraiva**
-
-🔗 LinkedIn  
-https://linkedin.com/in/alexandre-saraiva12  
-
-💻 GitHub  
-https://github.com/ALEXs-G
-
----
-
-##  Future Improvements
-
-- Replace delay loops with hardware timers
-- Improve interrupt reactivation logic
-- Modularize code for scalability
-- Add PCB design instead of breadboard
-
----
-
-##  Key Takeaways
-
-This project demonstrates:
-
-- Low-level embedded programming
-- Real-time system design
-- Hardware/software integration
-- Interrupt-driven architecture
-
----
+- Replace delay loops with Timer/Counter interrupts so timing is deterministic and measurable.
+- Fix the re-arm defect: clear request flags and the external-interrupt flags (`EIFR`) at the end of each service sequence. Add a test that sends N consecutive requests.
+- Measure the state durations with a logic analyser and compare them with the ±0.5 s requirement.

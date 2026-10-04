@@ -87,7 +87,7 @@ estado6:
 ; ======================
 INT1a:
   ldi r19, 0x02
-  recall CheckInt1
+  rcall CheckInt1
   reti
 
 CheckInt1:

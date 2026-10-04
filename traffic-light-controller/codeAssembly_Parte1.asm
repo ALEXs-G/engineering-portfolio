@@ -7,7 +7,8 @@ START:
   out SPL, r16
   ldi r16, HIGH(RAMEND)
   out SPH, r16 ; inicialização da stack
-  ldi r16, 0xFF out DDRA, R16
+  ldi r16, 0xFF
+  out DDRA, R16
   out DDRB, R16
 
 ; Tudo a 1s (portos como saída)

@@ -92,7 +92,8 @@ estado6:
 ; INTERRUPÇÃO INT0
 ; ======================
 INT0a:
-  ldi r19, 0x01 reti
+  ldi r19, 0x01
+  reti
 ; ativa flag de pedido de peão
 
   ; ======================
