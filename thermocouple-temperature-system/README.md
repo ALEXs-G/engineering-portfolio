@@ -1,22 +1,24 @@
-#  Thermocouple Temperature Measurement System (Type K)
+# Thermocouple Temperature Measurement System (Type K)
 
 Design and implementation of a **temperature measurement system using a Type K thermocouple**, including **cold junction compensation** and signal conditioning.
 
+| | |
+|---|---|
+| **Status** | Complete |
+| **Context** | Academic — Instrumentation and Measurement, University of Beira Interior, June 2024 |
+| **Team** | Alexandre Saraiva, Diogo Soares |
+| **My contribution** | Co-author (2-person lab work) |
+| **Evidence** | [Report (PT, PDF)](report.pdf) · setup photo below · measured data in [Experimental Results](#experimental-results) |
+
 ---
 
-##  Experimental Setup
+## Experimental Setup
 
 ![Thermocouple System](termopar.png)
 
 ---
 
-##  Project Report
-
-[Download Full Report](REPORTKalexandreEEC.pdf)
-
----
-
-##  Overview
+## Overview
 
 This project focuses on measuring temperature in the range:
 
@@ -24,28 +26,28 @@ This project focuses on measuring temperature in the range:
 
 using a **Type K thermocouple**, combined with a compensation circuit to ensure accurate measurements independent of environmental conditions.
 
-As described in the [report](REPORTKalexandreEEC.pdf), the system includes automatic cold junction compensation to isolate the temperature of interest.
+As described in the [report](report.pdf), the system includes automatic cold junction compensation to isolate the temperature of interest.
 
 ---
 
-##  System Functionality
+## System Functionality
 
-###  Temperature Measurement
+### Temperature Measurement
 - Uses a **Type K thermocouple**
 - Converts temperature differences into voltage
 
-###  Cold Junction Compensation
+### Cold Junction Compensation
 - Implemented using **LM335 temperature sensor**
 - Ensures output depends only on measured temperature (Tj)
 
-###  Output Signal
+### Output Signal
 - Voltage range:
   - **0 V → 2.5 V**
 - Proportional to temperature
 
 ---
 
-##  Circuit Design
+## Circuit Design
 
 The system includes:
 
@@ -66,7 +68,7 @@ Where:
 
 ---
 
-##  Component Design
+## Component Design
 
 Calculated values:
 
@@ -78,7 +80,7 @@ These values ensure correct scaling and compensation across the temperature rang
 
 ---
 
-##  Experimental Results
+## Experimental Results
 
 | Temperature (ºC) | Output Voltage (V) |
 |----------------|------------------|
@@ -95,63 +97,20 @@ Results show a **linear relationship** between temperature and output voltage.
 
 ---
 
-##  Key Observations
+## Key Observations
 
 - Linear output across the full range
 - An offset of about +0.12 V remains at 0 °C (design target: 0 V), so the output reads high without calibration
 - Compensation circuit improves reliability
 - System stable across full temperature range
 
-The [report](REPORTKalexandreEEC.pdf) concludes that cold junction compensation is essential for precision measurements.
+The [report](report.pdf) concludes that cold junction compensation is essential for precision measurements.
 
 ---
 
-##  Technologies Used
+## Technologies Used
 
 - Analog electronics
 - Sensors (Thermocouple Type K, LM335)
 - Signal conditioning
 - Instrumentation and measurement
-
----
-
-## Academic Context
-
--  Electrical and Computer Engineering  
--  University of Beira Interior  
--  Course: Instrumentation and Measurement  
-
----
-
-##  Author
-
-**Alexandre Saraiva**
-
-🔗 LinkedIn  
-https://linkedin.com/in/alexandre-saraiva12  
-
-💻 GitHub  
-https://github.com/ALEXs-G  
-
----
-
-##  Skills Demonstrated
-
-✔ Sensor integration  
-✔ Analog circuit design  
-✔ Temperature measurement systems  
-✔ Signal conditioning  
-✔ Engineering calibration techniques  
-
----
-
-##  Why This Project Matters
-
-This project demonstrates:
-
-✔ Real-world sensor usage  
-✔ Precision measurement systems  
-✔ Analog electronics design  
-✔ Engineering problem-solving  
-
----

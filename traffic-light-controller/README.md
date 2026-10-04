@@ -1,22 +1,24 @@
-#  Traffic Light Control System (ATmega2560)
+# Traffic Light Control System (ATmega2560)
 
-Embedded systems project implementing a **traffic light controller with pedestrian support**, using the **ATmega2560 microcontroller** and **Assembly programming**.
+Embedded systems project implementing a **traffic light controller with pedestrian support**, using the **ATmega2560 microcontroller**, **Assembly programming** and a **GAL22V10** logic device.
+
+| | |
+|---|---|
+| **Status** | Partial — Parts 1 and 2 work; Part 3 does not accept repeated requests (see [Results](#results)) |
+| **Context** | Academic — Microprocessors, University of Beira Interior, 2026 |
+| **Team** | Individual report |
+| **My contribution** | Assembly and WinCUPL code, prototype and report |
+| **Evidence** | [Report (PT, PDF)](report.pdf) · source files listed below · prototype photo |
 
 ---
 
-##  System Prototype
+## System Prototype
 
 ![Traffic Light System](setup.jpg)
 
 ---
 
-##  Project Report
-
-📄 [Technical Report – Traffic Light Control System](MICRO2lab25.pdf)
-
----
-
-##  Overview
+## Overview
 
 This project implements a **real-time traffic light control system** with:
 
@@ -25,32 +27,39 @@ This project implements a **real-time traffic light control system** with:
 - External interrupt handling (INT0 and INT1)
 - Time-controlled state transitions
 
-The system was fully developed in **Assembly**, providing low-level control over the hardware.
-
 ---
 
-##  System Features
+## System Features
 
-###  Traffic Light Cycle
+### Traffic Light Cycle
 - Green → Yellow → Red sequence
 - Timed using software counters (~500 ms resolution)
 
-###  Pedestrian Request (INT0)
+### Pedestrian Request (INT0)
 - Triggered by external button
 - Forces safe transition:
   - Vehicles → Red
   - Pedestrians → Green
 
-###  Independent Crossing (INT1)
+### Independent Crossing (INT1)
 - Separate pedestrian crossing
 - Does not interrupt main traffic flow
-- Includes minimum delay between activations (30s)
+- Includes minimum delay between activations (30 s)
 
 ---
 
-##  Architecture
+## Source Files
 
-The system is based on:
+| File | Content |
+|---|---|
+| [codeAssembly_Parte1.asm](codeAssembly_Parte1.asm) | Part 1 — basic light cycle |
+| [codeASM_parte2_INT.asm](codeASM_parte2_INT.asm), [codeAsm_p2_3.asm](codeAsm_p2_3.asm) | Part 2 — pedestrian request on INT0 |
+| [code_p3_INtIn.asm](code_p3_INtIn.asm) | Part 3 — independent crossing on INT1 |
+| [codeWINCUPL_Parte1.pld](codeWINCUPL_Parte1.pld), [codeWINCUPL_Peoes.pld](codeWINCUPL_Peoes.pld) | GAL22V10 logic (WinCUPL) |
+
+---
+
+## Architecture
 
 - **ATmega2560 (AVR)**
 - GPIO control via PORTA, PORTB, PORTC
@@ -59,7 +68,7 @@ The system is based on:
 
 ---
 
-##  Hardware Components
+## Hardware Components
 
 - ATmega2560 (Arduino Mega)
 - LEDs (traffic lights simulation)
@@ -69,65 +78,23 @@ The system is based on:
 
 ---
 
-##  Technologies Used
+## Results
 
-- Assembly (AVR)
-- Embedded Systems
-- Digital Logic (PLD / GAL22V10)
-- Interrupt-driven programming
-
----
-
-##  Results
-
-The system successfully demonstrated:
+The system demonstrated:
 
 - Correct traffic sequencing
 - Real-time response to interrupts
 - Concurrent operation of independent subsystems
 
- Limitation:
-- After first interrupt, system may not handle new requests properly  
+Limitation:
+- After the first interrupt, the system does not handle new requests
   (requires improvement in flag reset / control flow)
 
 ---
 
-##  Academic Context
-
--  Electrical and Computer Engineering  
--  University of Beira Interior  
--  Course: Microprocessors
-
----
-
-##  Author
-
-**Alexandre Saraiva**
-
-🔗 LinkedIn  
-https://linkedin.com/in/alexandre-saraiva12  
-
-💻 GitHub  
-https://github.com/ALEXs-G
-
----
-
-##  Future Improvements
+## Future Improvements
 
 - Replace delay loops with hardware timers
 - Improve interrupt reactivation logic
 - Modularize code for scalability
 - Add PCB design instead of breadboard
-
----
-
-##  Key Takeaways
-
-This project demonstrates:
-
-- Low-level embedded programming
-- Real-time system design
-- Hardware/software integration
-- Interrupt-driven architecture
-
----

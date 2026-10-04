@@ -1,58 +1,61 @@
-#  Water Filtration & pH Control System (ATmega2560)
+# Water Filtration & pH Control System (ATmega2560)
 
-Embedded systems project implementing an **automated water filtration and pH regulation system** using the **ATmega2560 microcontroller** programmed in **Assembly**.
+Embedded systems exercise implementing an **automated water filtration and pH regulation system** on the **ATmega2560 microcontroller**, programmed in **Assembly**.
+
+| | |
+|---|---|
+| **Status** | Historical academic exercise — tested in simulation only (AVR Studio) |
+| **Context** | Academic — Microprocessors, University of Beira Interior, June 2024 |
+| **Team** | Individual report |
+| **My contribution** | Report and program. As stated in the report, the program was completed with code shared by colleagues. |
+| **Evidence** | [Report (PT, PDF)](report.pdf) · [Assembly source](controller.asm) |
+
+> **Note:** the committed source does not assemble as-is (`PINFILTER` is not defined).
 
 ---
 
-##  System Concept
+## System Concept
 
 ![System Architecture](ArduinoCircuit.png)
 
 ---
 
-##  Project Report
+## Overview
 
- [Download Full Report](REPORT.pdf)
-
----
-
-##  Overview
-
-This project simulates a **smart pool water management system** capable of:
+This project simulates a **pool water management system** capable of:
 
 - Activating filtration cycles automatically
 - Measuring water pH levels using sensors
 - Comparing real-time values with a reference
 - Automatically correcting pH levels
 
-The system operates using **interrupt-driven logic** and low-level hardware control.
+The system uses **interrupt-driven logic** and low-level hardware control.
 
 ---
 
-##  System Functionality
+## System Functionality
 
-### 1-  Filtration Control
+### 1. Filtration Control
 - Triggered by external clock signal
 - System starts in **sleep mode**
 - Activates filtration cycle when triggered
 
-### 2- pH Measurement
+### 2. pH Measurement
 - Sensor reading initiated via control signal
 - ADC used to capture pH value
-- Value stored in input port
 
-### 3- pH Comparison Logic
+### 3. pH Comparison Logic
 - Compares sensor value with reference value
 - Applies tolerance margin (+3)
 
-### 4- Automatic Regulation
+### 4. Automatic Regulation
 - If pH too high → activates **pH decrease (PhA)**
 - If pH too low → activates **pH increase (PhB)**
 - Runs continuously during filtration cycle
 
 ---
 
-##  Architecture
+## Architecture
 
 The system is composed of:
 
@@ -65,21 +68,11 @@ The system is composed of:
 The system uses:
 - Sleep mode
 - External interrupts
-- Polling and ADC conversion
+- ADC conversion with interrupt
 
 ---
 
-##  Technologies Used
-
-- Assembly (AVR)
-- Embedded Systems Programming
-- ADC (Analog-to-Digital Conversion)
-- Interrupt handling
-- Low-level hardware control
-
----
-
-##  Example Logic
+## Example Logic
 
 | Sensor pH | Reference | Action |
 |----------|----------|--------|
@@ -89,51 +82,9 @@ The system uses:
 
 ---
 
-##  Academic Context
+## Technologies Used
 
--  Electrical and Computer Engineering  
--  University of Beira Interior  
--  Course: Microprocessors  
-
----
-
-##  Author
-
-**Alexandre Saraiva**
-
-🔗 LinkedIn  
-https://linkedin.com/in/alexandre-saraiva12  
-
-💻 GitHub  
-https://github.com/ALEXs-G  
-
----
-
-##  Key Learning Outcomes
-
-- Assembly programming on AVR architecture
-- Real-time system design
-- Interrupt-driven control systems
-- ADC integration and sensor processing
-- Hardware/software interaction
-
----
-
-##  Notes
-
-- Project implemented in an academic context
-- Some parts required iterative debugging and optimization
-- Focus on understanding embedded system architecture
-
----
-
-##  Why This Project Matters
-
-This project demonstrates:
-
-✔ Embedded systems design  
-✔ Real-world control system logic  
-✔ Low-level programming skills  
-✔ Sensor integration and automation  
-
----
+- Assembly (AVR)
+- ADC (Analog-to-Digital Conversion)
+- Interrupt handling
+- AVR Studio (simulation)
