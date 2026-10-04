@@ -2,7 +2,13 @@
 
 This project models the **blocking probability** and **supported traffic** in cellular communication systems using the **Erlang-B formula**.
 
-It is based on an academic laboratory assignment about blocking probability and supported traffic in cellular systems.
+| | |
+|---|---|
+| **Status** | Complete — the script runs and reproduces standard Erlang-B values |
+| **Context** | Academic laboratory assignment (Mobile Communications), University of Beira Interior |
+| **Team** | Individual |
+| **My contribution** | Python implementation and notebook |
+| **Evidence** | [erlang_b_simulation.py](erlang_b_simulation.py) · [erlang_b_simulation.ipynb](erlang_b_simulation.ipynb) |
 
 ## Overview
 
@@ -18,7 +24,6 @@ In a cellular system with a limited number of channels, new calls may be blocked
 - Blocking probability
 - Supported traffic analysis
 - Cellular systems dimensioning
-- Python-based engineering simulation
 
 ## Technologies Used
 
@@ -29,6 +34,7 @@ In a cellular system with a limited number of channels, new calls may be blocked
 ## Files
 
 - `erlang_b_simulation.py` — main simulation script
+- `erlang_b_simulation.ipynb` — notebook version
 - `requirements.txt` — Python dependencies
 
 ## How to Run
@@ -52,18 +58,3 @@ The script generates:
 1. Blocking probability vs number of channels
 2. Blocking probability vs offered traffic
 3. Supported traffic for a maximum blocking probability target
-
-## Academic Context
-
-- Course: Mobile Communications / Cellular Systems
-- University: University of Beira Interior
-
-## Author
-
-**Alexandre Saraiva**
-
-LinkedIn:  
-https://linkedin.com/in/alexandre-saraiva12
-
-GitHub:  
-https://github.com/ALEXs-G

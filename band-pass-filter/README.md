@@ -2,17 +2,19 @@
 
 Design, implementation, and experimental validation of a **2nd-order analog band-pass filter** built by cascading a **Chebyshev high-pass filter** and a **Chebyshev low-pass filter**.
 
+| | |
+|---|---|
+| **Status** | Complete |
+| **Context** | Academic — Signal and Image Processing, University of Beira Interior, January 2025 |
+| **Team** | Individual |
+| **My contribution** | Design, build, measurements and report |
+| **Evidence** | [Report (PT, PDF)](report.pdf) · setup photo below |
+
 ---
 
 ## Hardware Setup
 
 ![Band-Pass Filter Setup](Bpass.png)
-
----
-
-## Project Report
-
-[Download Full Report](Report_Alexandre_TLB1_PSI.pdf)
 
 ---
 
@@ -92,7 +94,7 @@ The experimental response was measured using **PicoScope 7** for frequencies bet
 
 - The magnitude response showed **reasonable agreement** with the theoretical model
 - The phase response contained measurement errors due to incorrect delay extraction
-- The filter successfully behaved as a **band-pass filter** in practical tests
+- The filter behaved as a **band-pass filter** in practical tests
 
 ---
 
@@ -109,51 +111,9 @@ The comparison between MATLAB simulations and PicoScope measurements showed that
 
 ---
 
-## Skills Demonstrated
-
-- Analog signal processing
-- Filter design
-- Chebyshev approximation
-- MATLAB modelling and validation
-- Experimental measurement with oscilloscope
-- Circuit implementation with operational amplifiers
-
----
-
 ## Tools Used
 
 - MATLAB
 - PicoScope 7
 - Analog electronics lab equipment
 - Breadboard prototyping
-
----
-
-## Academic Context
-
-- Electrical and Computer Engineering
-- University of Beira Interior
-- Course: Signal and Image Processing
-
----
-
-## Author
-
-**Alexandre Saraiva**
-
-LinkedIn  
-https://linkedin.com/in/alexandre-saraiva12
-
-GitHub  
-https://github.com/ALEXs-G
-
----
-
-## Why This Project Matters
-
-This project demonstrates:
-
-- Analog electronics design  
-- Frequency-domain analysis  
-- Practical validation of theoretical models  
-- Engineering workflow from design to implementation and testing  
